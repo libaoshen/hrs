@@ -1,0 +1,80 @@
+body {
+  margin:0px auto;
+  padding:0px;
+  background-color:rgba(102, 102, 102, 0.0588235294117647);
+  width:664px;
+}
+#base {
+  position:relative;
+  margin:200px auto;
+}
+#left {
+	width:380px;
+	height:400px;
+	float:left;
+	margin-right:10px;
+}
+#right {
+	width:270px;
+	height:400px;
+	overflow:hidden;
+}
+#logo {
+	margin-top:40px;
+	padding:0px;
+}
+#logoimg {
+	margin-left:85px;
+}
+#left-title {
+	margin-top:44px;
+	color:white;
+	font-family:monospace;
+}
+#left-title h3 {
+	margin-left:92px;
+}
+#copyright {
+	margin-top:42px;
+	font-family: sans-serif;
+}
+#copyright h6 {
+	margin-left:125px;
+}
+#backimage {
+	position:relative;
+}
+#right-title {
+	margin-top:40px;
+}
+#right-title h3 {
+	margin-left:110px;
+}
+#right form {
+	margin-left: 45px;
+}
+#right input {
+	margin-top:35px;
+	display:block;
+}
+.input {
+	width:170px;
+	height:30px;
+	text-align: center;
+	line-height:100%;
+	border:1px solid #b3b3b3;
+	border-radius:2px;
+}
+
+#submit {
+	margin-left:50px;
+	border:1px solid gray;
+	border-radius:5px;
+	width:60px;
+	height:30px;
+}
+#message {
+	color:red;
+	margin-left:70px;
+	height:2px;
+}

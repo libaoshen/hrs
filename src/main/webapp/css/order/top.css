@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+#top {
+	background-color: white;
+	width:100%;
+	min-width:1000px;
+	height:105px;
+	padding-top: 10px;
+}
+
+#top1 {
+	width:1200px;
+	margin:5px auto;
+	height:50px;
+}
+#logo {
+	width:300px;
+	float:left;
+}
+#login {
+	float:right;
+	width:100px;
+	text-align: right;
+}
+
+#login a {
+	color:blue;
+	text-decoration: none;
+}
+
+#login a:hover {
+	color:red;
+}
+
+#top_process {
+	width:1200px;
+	margin:1px auto;
+	color:#ababab;
+	font-size:15px;
+}
+
+#top_process ul {
+	display:inline-block;
+	list-style: none;
+	margin-left:-50px;
+}
+
+#top_process li {
+	float:left;
+}
+
+#top_process .line {
+	float:left;
+	margin-top:10px;
+	margin-left:10px;
+	width:315px;
+	border-top: 2px dashed #bcbcbc;
+}
+
+#top_process .circle {
+	float:left;
+	margin-top:6px;
+	margin-right:5px;
+	width:10px;
+	height:10px;
+	background-color:#bcbcbc;
+	border-radius:50%;
+}

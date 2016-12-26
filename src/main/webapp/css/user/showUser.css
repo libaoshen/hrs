@@ -1,0 +1,13 @@
+@CHARSET "UTF-8";
+#user_table {
+	width:1000px;
+	margin:40px auto;
+	border: 1px solid blue;
+	border-collapse: collapse;
+	font-size:16px;
+	text-align: center;
+}
+
+#user_table td {
+	border:1px solid blue;
+}

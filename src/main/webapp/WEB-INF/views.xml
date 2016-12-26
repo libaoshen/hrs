@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+	"http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+	
+<tiles-definitions>
+	<!-- 后台模板 -->
+	<definition name="template_back" template="/jsp/admin/common/main.jsp">
+		<put-attribute name="top" value="/jsp/admin/common/top.jsp" />
+		<put-attribute name="bottom" value="/jsp/admin/common/bottom.jsp" />
+		<put-attribute name="content" value="" />
+	</definition>	
+	<!-- 管理员主界面 -->	
+	<definition name="showAdminHome" extends="template_back">
+		<put-attribute name="content" value="/jsp/admin/home.jsp" />
+	</definition>
+	<!-- 房间管理界面 -->
+	<definition name="showRoom" extends="template_back">
+		<put-attribute name="content" value="/jsp/admin/room/room.jsp" />
+	</definition>
+	<!-- 订单管理界面 -->
+	<definition name="showOrder" extends="template_back">
+		<put-attribute name="content" value="/jsp/admin/order/order.jsp" />
+	</definition>
+	<!-- 用户管理界面 -->
+	<definition name="showUser" extends="template_back">
+		<put-attribute name="content" value="/jsp/admin/user/user.jsp" />
+	</definition>
+	<!-- 管理员登录界面 -->
+	<definition name="showAdminLogin" template="/jsp/admin/login.jsp"></definition>
+	
+	<!-- 前台模板 -->
+	<definition name="template_front" template="/jsp/user/common/main.jsp">
+		<put-attribute name="top" value="/jsp/user/common/top.jsp" />
+		<put-attribute name="bottom" value="/jsp/user/common/bottom.jsp" />
+		<put-attribute name="content" value="" />
+	</definition>
+	
+	<!-- 主界面 -->	
+	<definition name="showHome" extends="template_front">
+		<put-attribute name="content" value="/index.jsp" />
+	</definition>
+	
+	<!-- 使用指南 -->	
+	<definition name="showHelp" extends="template_front">
+		<put-attribute name="content" value="/jsp/user/help.jsp" />
+	</definition>
+	
+	<!-- 显示用户的订单信息页面 -->
+	<definition name="showUserOrder" extends="template_front">
+		<put-attribute name="content" value="/jsp/user/order/showUserOrder.jsp" />
+	</definition>
+	
+	<!-- 查看用户信息页面 -->	
+	<definition name="showUserInfo" extends="template_front">
+		<put-attribute name="content" value="/jsp/user/showUserInfo.jsp" />
+	</definition>
+	
+	<!-- 修改用户信息界面-->	
+	<definition name="showUpdateInfo" extends="template_front">
+		<put-attribute name="content" value="/jsp/user/showUpdateInfo.jsp" />
+	</definition>
+	
+	<!-- 修改用户信息成功界面-->	
+	<definition name="showUpdateSuccess" extends="template_front">
+		<put-attribute name="content" value="/jsp/user/showUpdateSuccess.jsp" />
+	</definition>
+	
+	<!-- 用户登录界面 -->
+	<definition name="showLogin" template="/jsp/user/login.jsp"></definition>
+	<!-- 用户注册界面 -->
+	<definition name="showRegister" template="/jsp/user/register.jsp"></definition>
+	<!-- 用户注册成功界面 -->
+	<definition name="showRegisterSuccess" template="/jsp/user/registerSuccess.jsp"></definition>
+	
+	<!-- 订单流程页面模板 -->
+	<definition name="template_order" template="/jsp/user/order/main.jsp">
+		<put-attribute name="top" value="/jsp/user/order/top.jsp" />
+		<put-attribute name="bottom" value="/jsp/user/order/bottom.jsp" />
+		<put-attribute name="content" value="" />
+	</definition>
+	
+	<!-- 显示完成订单页面 -->
+	<definition name="showAddOrder" extends="template_order">
+		<put-attribute name="content" value="/jsp/user/order/showAddOrder.jsp"></put-attribute>
+	</definition>
+	<!-- 显示完成支付页面 -->
+	<definition name="showOrderPay" extends="template_order">
+		<put-attribute name="content" value="/jsp/user/order/showOrderPay.jsp"></put-attribute>
+	</definition>
+	<!-- 显示完成订单页面 -->
+	<definition name="showOrderSuccess" extends="template_order">
+		<put-attribute name="content" value="/jsp/user/order/showOrderSuccess.jsp"></put-attribute>
+	</definition>
+	<!-- 显示订单过期页面 -->
+	<definition name="showOrderInvalid" extends="template_order">
+		<put-attribute name="content" value="/jsp/user/order/showOrderInvalid.jsp"></put-attribute>
+	</definition>
+	<!-- 显示支付失败页面 -->
+	<definition name="showPayFail" extends="template_order">
+		<put-attribute name="content" value="/jsp/user/order/showPayFail.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 找回密码界面 -->
+	<definition name="showFindPassword" template="/jsp/user/findPassword/findPassword.jsp">
+		<put-attribute name="top" value="/jsp/user/findPassword/top.jsp" />
+		<put-attribute name="content" value="" />
+	</definition>
+	<definition name="showFindPassword1" extends="showFindPassword">
+		<put-attribute name="content" value="/jsp/user/findPassword/showFindPassword1.jsp"></put-attribute>
+	</definition>
+	<definition name="showFindPassword2" extends="showFindPassword">
+		<put-attribute name="content" value="/jsp/user/findPassword/showFindPassword2.jsp"></put-attribute>
+	</definition>
+	<definition name="showFindPassword3" extends="showFindPassword">
+		<put-attribute name="content" value="/jsp/user/findPassword/showFindPassword3.jsp"></put-attribute>
+	</definition>
+		<definition name="showFindPassword4" extends="showFindPassword">
+		<put-attribute name="content" value="/jsp/user/findPassword/showFindPassword4.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>

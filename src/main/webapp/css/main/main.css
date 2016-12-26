@@ -1,0 +1,9 @@
+@CHARSET "UTF-8";
+#content {
+	z-index:100;	
+	min-height:500px;
+}
+
+#bottom {
+	height:100px;
+}

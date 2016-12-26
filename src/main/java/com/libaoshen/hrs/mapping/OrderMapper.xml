@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.libaoshen.hrs.dao.OrderMapper" >
+  <resultMap id="BaseResultMap" type="com.libaoshen.hrs.bean.Order" >
+    <id column="orderID" property="orderid" jdbcType="BIGINT" />
+    <result column="userID" property="userid" jdbcType="INTEGER" />
+    <result column="roomID" property="roomid" jdbcType="INTEGER" />
+    <result column="roomNum" property="roomnum" jdbcType="INTEGER" />
+    <result column="startTime" property="starttime" jdbcType="TIMESTAMP" />
+    <result column="endTime" property="endtime" jdbcType="TIMESTAMP" />
+    <result column="totalPrice" property="totalprice" jdbcType="REAL" />
+    <result column="orderTime" property="ordertime" jdbcType="TIMESTAMP" />
+    <result column="orderIP" property="orderip" jdbcType="VARCHAR" />
+    <result column="registerInfo" property="registerinfo" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="orderState" property="orderstate" jdbcType="VARCHAR" />
+    <result column="deadline" property="deadline" jdbcType="TIMESTAMP" />
+    <result column="payTime" property="paytime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    orderID, userID, roomID, roomNum, startTime, endTime, totalPrice, orderTime, orderIP, 
+    registerInfo, remarks, orderState, deadline, payTime
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_order
+    where orderID = #{orderid,jdbcType=BIGINT}
+  </select>
+  
+  <select id="selectAllOrder" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_order
+  </select>
+  
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_order
+    where userID = #{userid,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectByOrderState" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_order
+    where orderState = #{orderState,jdbcType=VARCHAR}
+  </select>
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from tb_order
+    where orderID = #{orderid,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.libaoshen.hrs.bean.Order" >
+    insert into tb_order (orderID, userID, roomID, 
+      roomNum, startTime, endTime, 
+      totalPrice, orderTime, orderIP, 
+      registerInfo, remarks, orderState, 
+      deadline, payTime)
+    values (#{orderid,jdbcType=BIGINT}, #{userid,jdbcType=INTEGER}, #{roomid,jdbcType=INTEGER}, 
+      #{roomnum,jdbcType=INTEGER}, #{starttime,jdbcType=TIMESTAMP}, #{endtime,jdbcType=TIMESTAMP}, 
+      #{totalprice,jdbcType=REAL}, #{ordertime,jdbcType=TIMESTAMP}, #{orderip,jdbcType=VARCHAR}, 
+      #{registerinfo,jdbcType=VARCHAR}, #{remarks,jdbcType=VARCHAR}, #{orderstate,jdbcType=VARCHAR}, 
+      #{deadline,jdbcType=TIMESTAMP}, #{paytime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.libaoshen.hrs.bean.Order" >
+    insert into tb_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="orderid != null" >
+        orderID,
+      </if>
+      <if test="userid != null" >
+        userID,
+      </if>
+      <if test="roomid != null" >
+        roomID,
+      </if>
+      <if test="roomnum != null" >
+        roomNum,
+      </if>
+      <if test="starttime != null" >
+        startTime,
+      </if>
+      <if test="endtime != null" >
+        endTime,
+      </if>
+      <if test="totalprice != null" >
+        totalPrice,
+      </if>
+      <if test="ordertime != null" >
+        orderTime,
+      </if>
+      <if test="orderip != null" >
+        orderIP,
+      </if>
+      <if test="registerinfo != null" >
+        registerInfo,
+      </if>
+      <if test="remarks != null" >
+        remarks,
+      </if>
+      <if test="orderstate != null" >
+        orderState,
+      </if>
+      <if test="deadline != null" >
+        deadline,
+      </if>
+      <if test="paytime != null" >
+        payTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="orderid != null" >
+        #{orderid,jdbcType=BIGINT},
+      </if>
+      <if test="userid != null" >
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="roomid != null" >
+        #{roomid,jdbcType=INTEGER},
+      </if>
+      <if test="roomnum != null" >
+        #{roomnum,jdbcType=INTEGER},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalprice != null" >
+        #{totalprice,jdbcType=REAL},
+      </if>
+      <if test="ordertime != null" >
+        #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderip != null" >
+        #{orderip,jdbcType=VARCHAR},
+      </if>
+      <if test="registerinfo != null" >
+        #{registerinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstate != null" >
+        #{orderstate,jdbcType=VARCHAR},
+      </if>
+      <if test="deadline != null" >
+        #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paytime != null" >
+        #{paytime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.libaoshen.hrs.bean.Order" >
+    update tb_order
+    <set >
+      <if test="userid != null" >
+        userID = #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="roomid != null" >
+        roomID = #{roomid,jdbcType=INTEGER},
+      </if>
+      <if test="roomnum != null" >
+        roomNum = #{roomnum,jdbcType=INTEGER},
+      </if>
+      <if test="starttime != null" >
+        startTime = #{starttime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endtime != null" >
+        endTime = #{endtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="totalprice != null" >
+        totalPrice = #{totalprice,jdbcType=REAL},
+      </if>
+      <if test="ordertime != null" >
+        orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="orderip != null" >
+        orderIP = #{orderip,jdbcType=VARCHAR},
+      </if>
+      <if test="registerinfo != null" >
+        registerInfo = #{registerinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="remarks != null" >
+        remarks = #{remarks,jdbcType=VARCHAR},
+      </if>
+      <if test="orderstate != null" >
+        orderState = #{orderstate,jdbcType=VARCHAR},
+      </if>
+      <if test="deadline != null" >
+        deadline = #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="paytime != null" >
+        payTime = #{paytime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where orderID = #{orderid,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.libaoshen.hrs.bean.Order" >
+    update tb_order
+    set userID = #{userid,jdbcType=INTEGER},
+      roomID = #{roomid,jdbcType=INTEGER},
+      roomNum = #{roomnum,jdbcType=INTEGER},
+      startTime = #{starttime,jdbcType=TIMESTAMP},
+      endTime = #{endtime,jdbcType=TIMESTAMP},
+      totalPrice = #{totalprice,jdbcType=REAL},
+      orderTime = #{ordertime,jdbcType=TIMESTAMP},
+      orderIP = #{orderip,jdbcType=VARCHAR},
+      registerInfo = #{registerinfo,jdbcType=VARCHAR},
+      remarks = #{remarks,jdbcType=VARCHAR},
+      orderState = #{orderstate,jdbcType=VARCHAR},
+      deadline = #{deadline,jdbcType=TIMESTAMP},
+      payTime = #{paytime,jdbcType=TIMESTAMP}
+    where orderID = #{orderid,jdbcType=BIGINT}
+  </update>
+</mapper>

@@ -1,0 +1,213 @@
+@CHARSET "UTF-8";
+#menubar1{
+	height:40px;
+	margin:10px auto;
+	padding:10px;
+	position:relative;
+	top:0;
+	background-color:white;
+	width:1000px;
+}
+#menubar1 ul{
+	float:left;
+	width:1000px;
+	list-style: none;
+	height:40px;
+	padding:0;
+	margin:0;
+	border-bottom: 1px solid #d0d0d0;
+}
+#menubar1 li{
+	float:left;
+	height:40px;
+}
+#menubar1 li:first-child a {
+	color:white;
+}
+#menubar1 a{
+	vertical-align: middle;	
+	line-height: 40px;
+	display:inline-block;
+	margin:0 10px;
+	*display:inline;
+	zoom:1;
+	color:black;
+	text-decoration: none;
+	font-size: 20px;
+}
+#menubar2{	
+	height:60px;
+	position:fixed;
+	top:0;
+	background-color:white;
+	min-width:100%;
+	box-shadow:0px 3px 5px #dedede;
+	z-index: 999999999999;
+}
+#menubar2 ul {
+	padding:0;
+	margin:0;
+	float:left;
+	list-style: none;
+	height:60px;
+	margin-left:300px;
+}
+#menubar2 ul li{
+	float:left;
+	height:60px;
+}
+#menubar2 a {
+	text-decoration:none;
+	line-height: 60px;
+	display:inline-block;
+	margin:0 10px;
+	*display:inline;
+	zoom:1;
+	color:black;
+	font-size: 20px;
+	vertical-align: middle;
+}
+#roomList {
+	width:1000px;
+	margin: 10px auto;
+}
+
+#roomList .room {
+	background-color:#eff4fa;
+	height:160px;	
+	margin-bottom: 15px;
+	padding:5px;
+	border: 1px solid #d6d6d6;
+}
+
+#roomList .img {
+	width:100px;
+	height:100px;
+	float:left;
+}
+
+#roomList .img img {
+	width:100px;
+	height:100px;
+}
+
+#roomList .info {
+	width:750px;
+	float:left;
+	overflow:hidden;
+	padding-left:20px;
+	padding-top:5px;
+}
+
+#roomList .info .info_name {
+	color:#37D;
+	font-size:20px;
+}
+
+#roomList .priceInfo {
+	float:right;
+	overflow:hidden;
+	margin-right:10px;
+	margin-top:15px;
+}
+#roomList .price {
+	text-align: center;
+	font-size: 25px;
+	color:red;
+}
+#roomList .submitOrder {
+	width:70px;
+	height:30px;
+	margin-top:10px ;
+	background-color: orange;
+	border-radius:2px;
+	text-align: center;
+	float:right;
+}
+
+#roomList .submitOrder a {
+	color:white;
+	text-decoration: none;
+	line-height: 30px;
+}
+
+#roomList .description {
+	margin-top:5px;
+	float:left;
+	width:900px;
+	border-top:1px solid #d6d6d6;
+	padding:5px;
+	overflow: hidden;
+	color:navy;
+}
+
+
+#hotelInfo {
+	width:1000px;
+	min-height:300px;
+	margin: 10px auto;
+	border: 1px solid #c5c5c5;
+	padding:0px;
+	padding-bottom: 20px;
+}
+
+ .h_first {
+	border-left: 5px solid gray;
+	font-size:25px;
+	margin-top:-20px;
+}
+
+#hotelInfo #h_second {
+	height:100px;
+	background-color: #f3f3f3;
+	font-size:50px;
+}
+
+#hotelInfo #h_second ul {
+	float:left;
+}
+
+#hotelInfo #h_second li{
+	float:left;
+	list-style: none;
+	margin-right: 20px;
+	margin-top: -30px;
+	width:100px;
+}
+
+#hotelInfo #h_second .fs1 {
+	text-align: center;
+}
+
+#hotelInfo #h_third ul {
+	float:left;
+	overflow: hidden;
+	margin-top: -20px;
+	margin-left: 20px;
+	color:#8b8b8b;
+}
+#hotelInfo #h_third li {
+	padding:5px 5px 5px 5px;
+	border-bottom: 1px solid #b0b0b0;
+	text-align: left;
+
+}
+
+#hotelInfo #h_third li:last-child {
+	border-bottom: none;
+}
+
+#transport {
+	width:1000px;
+	min-height:300px;
+	margin: 10px auto;
+	border: 1px solid #c5c5c5;
+}
+#time {
+	width:1000px;
+	margin:0 auto;
+}
+#time input {
+	border:1px solid #a8a8a8;
+	height:20px;
+}

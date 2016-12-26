@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.libaoshen.hrs.dao.RoomMapper" >
+  <resultMap id="BaseResultMap" type="com.libaoshen.hrs.bean.Room" >
+    <id column="roomID" property="roomid" jdbcType="INTEGER" />
+    <result column="roomName" property="roomname" jdbcType="VARCHAR" />
+    <result column="bedType" property="bedtype" jdbcType="VARCHAR" />
+    <result column="imgInfo" property="imginfo" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="roomPrice" property="roomprice" jdbcType="REAL" />
+    <result column="roomLeftNum" property="roomleftnum" jdbcType="INTEGER" />
+    <result column="roomTotalNum" property="roomtotalnum" jdbcType="INTEGER" />
+    <result column="hasBroadBand" property="hasbroadband" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    roomID, roomName, bedType, imgInfo, description, roomPrice, roomLeftNum, roomTotalNum, 
+    hasBroadBand
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_room
+    where roomID = #{roomid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByRoomName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_room
+    where roomName = #{roomName,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAllRoom" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_room
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from tb_room
+    where roomID = #{roomid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.libaoshen.hrs.bean.Room" >
+    insert into tb_room (roomID, roomName, bedType, 
+      imgInfo, description, roomPrice, 
+      roomLeftNum, roomTotalNum, hasBroadBand
+      )
+    values (#{roomid,jdbcType=INTEGER}, #{roomname,jdbcType=VARCHAR}, #{bedtype,jdbcType=VARCHAR}, 
+      #{imginfo,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{roomprice,jdbcType=REAL}, 
+      #{roomleftnum,jdbcType=INTEGER}, #{roomtotalnum,jdbcType=INTEGER}, #{hasbroadband,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.libaoshen.hrs.bean.Room" >
+    insert into tb_room
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="roomid != null" >
+        roomID,
+      </if>
+      <if test="roomname != null" >
+        roomName,
+      </if>
+      <if test="bedtype != null" >
+        bedType,
+      </if>
+      <if test="imginfo != null" >
+        imgInfo,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="roomprice != null" >
+        roomPrice,
+      </if>
+      <if test="roomleftnum != null" >
+        roomLeftNum,
+      </if>
+      <if test="roomtotalnum != null" >
+        roomTotalNum,
+      </if>
+      <if test="hasbroadband != null" >
+        hasBroadBand,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="roomid != null" >
+        #{roomid,jdbcType=INTEGER},
+      </if>
+      <if test="roomname != null" >
+        #{roomname,jdbcType=VARCHAR},
+      </if>
+      <if test="bedtype != null" >
+        #{bedtype,jdbcType=VARCHAR},
+      </if>
+      <if test="imginfo != null" >
+        #{imginfo,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="roomprice != null" >
+        #{roomprice,jdbcType=REAL},
+      </if>
+      <if test="roomleftnum != null" >
+        #{roomleftnum,jdbcType=INTEGER},
+      </if>
+      <if test="roomtotalnum != null" >
+        #{roomtotalnum,jdbcType=INTEGER},
+      </if>
+      <if test="hasbroadband != null" >
+        #{hasbroadband,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.libaoshen.hrs.bean.Room" >
+    update tb_room
+    <set >
+      <if test="roomname != null" >
+        roomName = #{roomname,jdbcType=VARCHAR},
+      </if>
+      <if test="bedtype != null" >
+        bedType = #{bedtype,jdbcType=VARCHAR},
+      </if>
+      <if test="imginfo != null" >
+        imgInfo = #{imginfo,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="roomprice != null" >
+        roomPrice = #{roomprice,jdbcType=REAL},
+      </if>
+      <if test="roomleftnum != null" >
+        roomLeftNum = #{roomleftnum,jdbcType=INTEGER},
+      </if>
+      <if test="roomtotalnum != null" >
+        roomTotalNum = #{roomtotalnum,jdbcType=INTEGER},
+      </if>
+      <if test="hasbroadband != null" >
+        hasBroadBand = #{hasbroadband,jdbcType=BIT},
+      </if>
+    </set>
+    where roomID = #{roomid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.libaoshen.hrs.bean.Room" >
+    update tb_room
+    set roomName = #{roomname,jdbcType=VARCHAR},
+      bedType = #{bedtype,jdbcType=VARCHAR},
+      imgInfo = #{imginfo,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      roomPrice = #{roomprice,jdbcType=REAL},
+      roomLeftNum = #{roomleftnum,jdbcType=INTEGER},
+      roomTotalNum = #{roomtotalnum,jdbcType=INTEGER},
+      hasBroadBand = #{hasbroadband,jdbcType=BIT}
+    where roomID = #{roomid,jdbcType=INTEGER}
+  </update>
+</mapper>

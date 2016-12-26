@@ -1,0 +1,67 @@
+@CHARSET "UTF-8";
+
+#content1 {
+	width:1200px;
+	margin:0px auto;
+	min-height:600px;
+	height:auto;
+	padding-top:20px;
+	padding-bottom:20px;
+	overflow:hidden;
+}
+
+#up {
+	min-height:300px;
+	background-color: white;
+	color:#a0a0a0;
+}
+
+#down {
+	min-height:150px;
+	background-color: #e7e7e7;
+}
+
+#order_info {
+	width:800px;
+	margin:5px auto;
+}
+
+#room_name,#user_name,#order_name {
+	font-size:22px;
+	color:#ff0b0b;
+}
+
+
+#up #order {
+	border-top:1px dashed gray;
+	border-bottom:1px dashed gray;
+	width:750px;
+}
+
+#up #user {
+	border-top:1px dashed gray;
+	border-bottom:1px dashed gray;
+	width:750px;
+}
+
+#up #user table td {
+	min-width:100px;
+}
+
+#up #room {
+	padding-top:5px;
+	border-top:1px dashed gray;
+	width:750px;
+}
+
+#up #room table {
+	padding-left:5px;
+}
+
+#up #room table td {
+	min-width:100px;
+}
+
+#up #order tr td:first-child ,#up #user tr td:first-child{
+	width:200px;
+}
