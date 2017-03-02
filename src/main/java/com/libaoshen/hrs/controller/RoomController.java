@@ -30,43 +30,43 @@ public class RoomController {
 	@Resource
 	private IRoomService roomService;
 	
-	//·ÖÒ³Êı
+	//åˆ†é¡µæ•°
 	private int pageSize = 5;
 	
 	/**
-	 * ·¿¼ä¹ÜÀí
+	 * æˆ¿é—´ç®¡ç†
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping({"/",""})
 	public String toRoom(Model model) {
-		//»ñÈ¡ËùÓĞµÄ·¿ĞÍĞÅÏ¢
+		//è·å–æ‰€æœ‰çš„æˆ¿å‹ä¿¡æ¯
 		List<Room> roomList = roomService.getAllRoom();
 		int pages = 5;
 		model.addAttribute("roompages", pages);
 		model.addAttribute("roomcounts", roomList.size());
 		//model.addAttribute("roomList",roomList);
-		model.addAttribute("title", "·¿¼ä¹ÜÀí");
+		model.addAttribute("title", "æˆ¿é—´ç®¡ç†");
 		model.addAttribute(new Room());
 		return "showRoom";
 	}
 	
 	/**
-	 * ajax·ÖÒ³´¦Àí
-	 * @param pageIndex µ±Ç°Ò³Êı
-	 * @param pageSize Ã¿Ò³´óĞ¡
-	 * @param totalPage ×Ü¹²µÄÊı¾İÊı
+	 * ajaxåˆ†é¡µå¤„ç†
+	 * @param pageIndex å½“å‰é¡µæ•°
+	 * @param pageSize æ¯é¡µå¤§å°
+	 * @param totalPage æ€»å…±çš„æ•°æ®æ•°
 	 * @return
 	 */
 	@RequestMapping("/ajax_operation")
 	public @ResponseBody List<Room> findContactAjax(String pageIndex,String pageSize,String totalPage) {  
-	    //»ñÈ¡µ±Ç°Ò³ÊıºÍÃ¿Ò³´óĞ¡
+	    //è·å–å½“å‰é¡µæ•°å’Œæ¯é¡µå¤§å°
 		Integer pageIndex1 = Integer.parseInt(pageIndex);
 	    Integer pageSize1 = Integer.parseInt(pageSize);
 	    Integer totalPage1 = Integer.parseInt(totalPage);
 	    //System.out.println(pageIndex1);
 	    //System.out.println(pageSize1);
-	    //»ñÈ¡ÏàÓ¦Ò³µÄÊı¾İ
+	    //è·å–ç›¸åº”é¡µçš„æ•°æ®
 		List<Room> roomList = roomService.getAllRoom();
 		List<Room> roomList1 = null;
 		//System.out.println(totalPage1/pageSize1);
@@ -75,13 +75,13 @@ public class RoomController {
 		}else {
 			roomList1 = roomList.subList((pageIndex1-1) * pageSize1, totalPage1);
 		}
-		//±£´æÊı¾İ²¢·µ»Ø
+		//ä¿å­˜æ•°æ®å¹¶è¿”å›
 	    return roomList1;  
     }  
 	
 	/**
-	 * Ìí¼Ó·¿ĞÍĞÅÏ¢
-	 * @param room Ç°Ì¨´«ÈëµÄ·¿ĞÍĞÅÏ¢
+	 * æ·»åŠ æˆ¿å‹ä¿¡æ¯
+	 * @param room å‰å°ä¼ å…¥çš„æˆ¿å‹ä¿¡æ¯
 	 * @param model
 	 * @return
 	 */
@@ -90,7 +90,7 @@ public class RoomController {
 		
 		if(roomService.getRoomByRoomName(room.getRoomname()) == null) {
 			room.setRoomleftnum(room.getRoomtotalnum());
-			//±£´æÍ¼Æ¬
+			//ä¿å­˜å›¾ç‰‡
 			Date date = new Date();
 			String imageName = date.getTime() + ".jpg";
 			saveImage(request.getServletContext().getRealPath("/images/room") + "/" + imageName, image);
@@ -99,7 +99,7 @@ public class RoomController {
 			model.addAttribute("feedback_addroom", 1);
 		}else {
 			model.addAttribute("feedback_addroom", 2);
-			model.addAttribute("message", "·¿ĞÍÃûÒÑ´æÔÚ");
+			model.addAttribute("message", "æˆ¿å‹åå·²å­˜åœ¨");
 		}
 		
 		List<Room> roomList = roomService.getAllRoom();
@@ -107,13 +107,13 @@ public class RoomController {
 		model.addAttribute("roompages", pageSize);
 		model.addAttribute("roomcounts", roomList.size());
 		//model.addAttribute("roomList",roomList);
-		model.addAttribute("title", "·¿¼ä¹ÜÀí");
+		model.addAttribute("title", "æˆ¿é—´ç®¡ç†");
 		model.addAttribute(new Room());
 		return "showRoom";
 	}
 	
 	/**
-	 * ±£´æÍ¼Æ¬ÖÁ±¾µØ
+	 * ä¿å­˜å›¾ç‰‡è‡³æœ¬åœ°
 	 * @param imageName
 	 * @param image
 	 */
@@ -129,7 +129,7 @@ public class RoomController {
 	}
 	
 	/**
-	 * É¾³ı·¿ĞÍĞÅÏ¢
+	 * åˆ é™¤æˆ¿å‹ä¿¡æ¯
 	 * @param model
 	 * @param request
 	 * @return
@@ -138,29 +138,29 @@ public class RoomController {
 	public String deleteRoom(Model model ,HttpServletRequest request) {
 		String id = request.getParameter("id");
 		Room room = roomService.getRoomById(Integer.parseInt(id));
-		//»ñÈ¡ËùÓĞµÄ·¿ĞÍĞÅÏ¢
+		//è·å–æ‰€æœ‰çš„æˆ¿å‹ä¿¡æ¯
 		//List<Room> roomList = roomService.getAllRoom();
 //		int pages = 5;
 //		model.addAttribute("roompages", pages);
 //		model.addAttribute("roomcounts", roomList.size());
 		if(room != null) {
 			roomService.deleteRoomByRoomId(Integer.parseInt(id));
-			model.addAttribute("feedback_addroom", 3);//3´ú±íÉ¾³ı³É¹¦
+			model.addAttribute("feedback_addroom", 3);//3ä»£è¡¨åˆ é™¤æˆåŠŸ
 		}else {
-			model.addAttribute("feedback_addroom", 4);//4´ú±íÉ¾³ıµÄ·¿ĞÍĞÅÏ¢²»´æÔÚ
+			model.addAttribute("feedback_addroom", 4);//4ä»£è¡¨åˆ é™¤çš„æˆ¿å‹ä¿¡æ¯ä¸å­˜åœ¨
 		}
 		
 		List<Room> roomList = roomService.getAllRoom();
 		//int pages = 5;
 		model.addAttribute("roompages", pageSize);
 		model.addAttribute("roomcounts", roomList.size());
-		model.addAttribute("title", "·¿¼ä¹ÜÀí");
+		model.addAttribute("title", "æˆ¿é—´ç®¡ç†");
 		model.addAttribute(new Room());
 		return "showRoom";
 	}
 	
 	/**
-	 * ÏÔÊ¾ĞŞ¸Ä·¿ĞÍĞÅÏ¢½çÃæ
+	 * æ˜¾ç¤ºä¿®æ”¹æˆ¿å‹ä¿¡æ¯ç•Œé¢
 	 * @param model
 	 * @param request
 	 * @return
@@ -169,26 +169,26 @@ public class RoomController {
 	public String toUpdateRoom(Model model, HttpServletRequest request){
 		String id = request.getParameter("id");
 		Room room = roomService.getRoomById(Integer.parseInt(id));
-		//»ñÈ¡ËùÓĞµÄ·¿ĞÍĞÅÏ¢
+		//è·å–æ‰€æœ‰çš„æˆ¿å‹ä¿¡æ¯
 		List<Room> roomList = roomService.getAllRoom();
 		//int pages = 5;
 		model.addAttribute("roompages", pageSize);
 		model.addAttribute("roomcounts", roomList.size());
 		if(room == null) {
 			model.addAttribute(new Room());
-			model.addAttribute("feedback_addroom", 6);//6´ú±íĞŞ¸Ä·¿ĞÍĞÅÏ¢µÄid²»´æÔÚ
+			model.addAttribute("feedback_addroom", 6);//6ä»£è¡¨ä¿®æ”¹æˆ¿å‹ä¿¡æ¯çš„idä¸å­˜åœ¨
 			//model.addAttribute(new Room());
 		}else {
 			model.addAttribute(room);
-			model.addAttribute("feedback_addroom", 5);//5´ú±íĞŞ¸Ä·¿ĞÍĞÅÏ¢
+			model.addAttribute("feedback_addroom", 5);//5ä»£è¡¨ä¿®æ”¹æˆ¿å‹ä¿¡æ¯
 			//model.addAttribute(new Room());
 		}
 		
-		model.addAttribute("title", "·¿¼ä¹ÜÀí");
+		model.addAttribute("title", "æˆ¿é—´ç®¡ç†");
 		return "showRoom";
 	}
 	/**
-	 * ĞŞ¸ÄroomĞÅÏ¢
+	 * ä¿®æ”¹roomä¿¡æ¯
 	 * @param room
 	 * @param image
 	 * @param model
@@ -197,7 +197,7 @@ public class RoomController {
 	 */
 	@RequestMapping("/updateRoom")
 	public String updateRoom(@ModelAttribute("room") Room room, @RequestParam("imageInfo1") MultipartFile image, Model model, HttpServletRequest request){
-		//ÅĞ¶ÏroomnameÊÇ·ñºÍÆäËûroomnameÖØ¸´
+		//åˆ¤æ–­roomnameæ˜¯å¦å’Œå…¶ä»–roomnameé‡å¤
 		List<Room> rooms = roomService.getAllRoom();
 		Room roomid = roomService.getRoomById(room.getRoomid());
 		Boolean flag = true;
@@ -213,38 +213,38 @@ public class RoomController {
 			} 
 		}
 		//System.out.println(flag);
-		//ÅĞ¶Ïflag
+		//åˆ¤æ–­flag
 		if(flag) {
 			if(request.getParameter("imageInfo") == null){
-				//²»ĞŞ¸ÄÍ¼Æ¬
+				//ä¸ä¿®æ”¹å›¾ç‰‡
 				Room room1 = roomService.getRoomById(room.getRoomid());
 				room.setImginfo(room1.getImginfo());
 				
 			}else {
-				//±£´æÍ¼Æ¬
+				//ä¿å­˜å›¾ç‰‡
 				Date date = new Date();
 				String imageName = date.getTime() + ".jpg";
 				saveImage(request.getServletContext().getRealPath("/images/room") + "/" + imageName, image);
 				room.setImginfo(imageName);
 			}
 			
-			//ĞŞ¸Ä·¿ĞÍĞÅÏ¢
+			//ä¿®æ”¹æˆ¿å‹ä¿¡æ¯
 			roomService.updateRoom(room);
-			model.addAttribute("feedback_addroom", 7);//ĞŞ¸Ä·¿ĞÍĞÅÏ¢³É¹¦
-			//»ñÈ¡ËùÓĞµÄ·¿ĞÍĞÅÏ¢
+			model.addAttribute("feedback_addroom", 7);//ä¿®æ”¹æˆ¿å‹ä¿¡æ¯æˆåŠŸ
+			//è·å–æ‰€æœ‰çš„æˆ¿å‹ä¿¡æ¯
 			
 		}else {
-			model.addAttribute("feedback_addroom", 8);//·¿ĞÍĞÅÏ¢ÖØ¸´
-			//model.addAttribute("message1", "·¿ĞÍÃûÒÑ´æÔÚ");
+			model.addAttribute("feedback_addroom", 8);//æˆ¿å‹ä¿¡æ¯é‡å¤
+			//model.addAttribute("message1", "æˆ¿å‹åå·²å­˜åœ¨");
 		}
 		
-		//»ñÈ¡ËùÓĞµÄ·¿ĞÍĞÅÏ¢²¢·µ»Ø
+		//è·å–æ‰€æœ‰çš„æˆ¿å‹ä¿¡æ¯å¹¶è¿”å›
 		List<Room> roomList = roomService.getAllRoom();
 		//int pages = 5;
 		model.addAttribute("roompages", pageSize);
 		model.addAttribute("roomcounts", roomList.size());
 		model.addAttribute(new Room());
-		model.addAttribute("title", "·¿¼ä¹ÜÀí");
+		model.addAttribute("title", "æˆ¿é—´ç®¡ç†");
 		return "showRoom";
 	}
 }

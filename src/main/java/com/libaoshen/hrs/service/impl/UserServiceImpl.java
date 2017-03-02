@@ -11,7 +11,7 @@ import com.libaoshen.hrs.dao.UserMapper;
 import com.libaoshen.hrs.service.IUserService;
 
 /**
- * ÓÃ»§·şÎñÊµÏÖÀà
+ * ç”¨æˆ·æœåŠ¡å®ç°ç±»
  * @author 404
  *
  */

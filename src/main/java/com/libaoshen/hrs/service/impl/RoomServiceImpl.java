@@ -11,7 +11,7 @@ import com.libaoshen.hrs.dao.RoomMapper;
 import com.libaoshen.hrs.service.IRoomService;
 
 /**
- * ·¿ĞÍ·şÎñÊµÏÖÀà
+ * æˆ¿å‹æœåŠ¡å®ç°ç±»
  * @author 404
  *
  */

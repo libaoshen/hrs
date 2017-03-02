@@ -6,17 +6,17 @@ import java.util.Random;
 
 public class TokenProccessor {
 	 /*
-     *µ¥ÀıÉè¼ÆÄ£Ê½£¨±£Ö¤ÀàµÄ¶ÔÏóÔÚÄÚ´æÖĞÖ»ÓĞÒ»¸ö£©
-     *1¡¢°ÑÀàµÄ¹¹Ôìº¯ÊıË½ÓĞ
-     *2¡¢×Ô¼º´´½¨Ò»¸öÀàµÄ¶ÔÏó
-     *3¡¢¶ÔÍâÌá¹©Ò»¸ö¹«¹²µÄ·½·¨£¬·µ»ØÀàµÄ¶ÔÏó
+     *å•ä¾‹è®¾è®¡æ¨¡å¼ï¼ˆä¿è¯ç±»çš„å¯¹è±¡åœ¨å†…å­˜ä¸­åªæœ‰ä¸€ä¸ªï¼‰
+     *1ã€æŠŠç±»çš„æ„é€ å‡½æ•°ç§æœ‰
+     *2ã€è‡ªå·±åˆ›å»ºä¸€ä¸ªç±»çš„å¯¹è±¡
+     *3ã€å¯¹å¤–æä¾›ä¸€ä¸ªå…¬å…±çš„æ–¹æ³•ï¼Œè¿”å›ç±»çš„å¯¹è±¡
      */
     private TokenProccessor(){}
     
     private static final TokenProccessor instance = new TokenProccessor();
     
     /**
-     * ·µ»ØÀàµÄ¶ÔÏó
+     * è¿”å›ç±»çš„å¯¹è±¡
      * @return
      */
     public static TokenProccessor getInstance(){
@@ -24,14 +24,14 @@ public class TokenProccessor {
     }
     
     /**
-     * Éú³ÉToken
-     * Token£ºNv6RRuGEVvmGjB+jimI/gw==
+     * ç”ŸæˆToken
+     * Tokenï¼šNv6RRuGEVvmGjB+jimI/gw==
      * @return
      */
     public String makeToken(){  //checkException
         //  7346734837483  834u938493493849384  43434384
         String token = (System.currentTimeMillis() + new Random().nextInt(999999999)) + "";
-        //Êı¾İÖ¸ÎÆ   128Î»³¤   16¸ö×Ö½Ú  md5
+        //æ•°æ®æŒ‡çº¹   128ä½é•¿   16ä¸ªå­—èŠ‚  md5
         try {
             MessageDigest md = MessageDigest.getInstance("md5");
             byte md5[] =  md.digest(token.getBytes());

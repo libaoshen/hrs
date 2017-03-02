@@ -8,12 +8,12 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 /**
- * ¹ÜÀíÔ±µÇÂ¼À¹½ØÆ÷
+ * ç®¡ç†å‘˜ç™»å½•æ‹¦æˆªå™¨
  * @author libaoshen
  *
  */
 public class AdminLoginInterceptor extends HandlerInterceptorAdapter {
-	//À¹½ØÖ´ĞĞÇ°·½·¨
+	//æ‹¦æˆªæ‰§è¡Œå‰æ–¹æ³•
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
@@ -21,7 +21,7 @@ public class AdminLoginInterceptor extends HandlerInterceptorAdapter {
 		String host = request.getContextPath();
 		//String adminname = request.getParameter("adminname");
 		
-		//ÅÅ³ıµÇÂ¼Â·¾¶,Í¬Ê±¶ÔµÇÂ¼Â·¾¶×ö´¦Àí
+		//æ’é™¤ç™»å½•è·¯å¾„,åŒæ—¶å¯¹ç™»å½•è·¯å¾„åšå¤„ç†
 		if(requestURI.endsWith("admin/") || requestURI.endsWith("admin") || requestURI.endsWith("login") || requestURI.endsWith("login/")) {
 			return true;
 		}else {

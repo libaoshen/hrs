@@ -6,20 +6,20 @@ import java.util.List;
 import com.libaoshen.hrs.bean.Order;
 
 public interface IOrderService {
-	//Ìí¼Ó¶©µ¥
+	//æ·»åŠ è®¢å•
 	public void addOrder(Order order);
-	//²éÑ¯ËùÓĞµÄ¶©µ¥
+	//æŸ¥è¯¢æ‰€æœ‰çš„è®¢å•
 	public List<Order> getAllOrder();
-	//¸ù¾İid²éÕÒ¶©µ¥
+	//æ ¹æ®idæŸ¥æ‰¾è®¢å•
 	public Order getOrderById(Long orderid);
-	//¸ù¾İÓÃ»§id²éÕÒ¶©µ¥
+	//æ ¹æ®ç”¨æˆ·idæŸ¥æ‰¾è®¢å•
 	public List<Order> getOrdersByUserId(Integer userid);
-	//É¾³ı¶©µ¥
+	//åˆ é™¤è®¢å•
 	public void deleteOrder(Order order);
-	//ĞŞ¸Ä¶©µ¥
+	//ä¿®æ”¹è®¢å•
 	public void updateOrder(Order order);
-	//¸ù¾İÏÂµ¥Ê±¼ä²éÑ¯¶©µ¥
+	//æ ¹æ®ä¸‹å•æ—¶é—´æŸ¥è¯¢è®¢å•
 	public List<Order> getOrdersByOrderTime(Date orderTime);
-	//¸ù¾İ¶©µ¥×´Ì¬²éÕÒ¶©µ¥
+	//æ ¹æ®è®¢å•çŠ¶æ€æŸ¥æ‰¾è®¢å•
 	public List<Order> getOrdersByOrderState(String orderState);
 }

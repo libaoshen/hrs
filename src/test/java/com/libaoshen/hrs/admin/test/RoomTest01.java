@@ -12,7 +12,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.libaoshen.hrs.bean.Room;
 import com.libaoshen.hrs.service.IRoomService;
 
-@RunWith(SpringJUnit4ClassRunner.class)		//±íÊ¾¼Ì³ĞÁËSpringJUnit4ClassRunnerÀà
+@RunWith(SpringJUnit4ClassRunner.class)		//è¡¨ç¤ºç»§æ‰¿äº†SpringJUnit4ClassRunnerç±»
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
 public class RoomTest01 {
 	private static Logger logger = Logger.getLogger(AdminTest01.class);
@@ -23,13 +23,13 @@ public class RoomTest01 {
 	public void testRoomFunction(){
 		//addRoom
 		Room room = new Room();
-		room.setRoomname("±ê×¼¼ä");
-		room.setBedtype("Ë«ÈË´²");
+		room.setRoomname("æ ‡å‡†é—´");
+		room.setBedtype("åŒäººåºŠ");
 		room.setRoomprice(400.0f);
 		room.setRoomtotalnum(20);
 		room.setRoomleftnum(20);
 		room.setHasbroadband(true);
-		room.setDescription("½¨ÖşÃæ»ı£º21-24Æ½·½Ã×;Â¥²ã£º2-6²ã;´²ĞÍ£ºµ¥ÈË´²1.1Ã×£¬2ÕÅ;¿É¼Ó´²£ºRMB 100/´²/¼äÒ¹;×î¶àÈë×¡ÈËÊı£º2ÈË");
+		room.setDescription("å»ºç­‘é¢ç§¯ï¼š21-24å¹³æ–¹ç±³;æ¥¼å±‚ï¼š2-6å±‚;åºŠå‹ï¼šå•äººåºŠ1.1ç±³ï¼Œ2å¼ ;å¯åŠ åºŠï¼šRMB 100/åºŠ/é—´å¤œ;æœ€å¤šå…¥ä½äººæ•°ï¼š2äºº");
 		room.setImginfo("1.png;2.png");
 		roomService.addRoom(room);
 		
@@ -39,25 +39,25 @@ public class RoomTest01 {
 //			logger.info(JSON.toJSONString(r));
 //		}
 		
-		//²âÊÔĞÅÏ¢Êä³öÖÁÈÕÖ¾µ±ÖĞ
+		//æµ‹è¯•ä¿¡æ¯è¾“å‡ºè‡³æ—¥å¿—å½“ä¸­
 		//selectRoomById
 //		Room room = roomService.getRoomById(1);
 //		logger.info(JSON.toJSONString(room));
 		
 		//selectRoomByRoomName
-//		Room room = roomService.getRoomByRoomName("±ê×¼¼ä");
+//		Room room = roomService.getRoomByRoomName("æ ‡å‡†é—´");
 //		logger.info(JSON.toJSONString(room));
 		
 		//updateRoom
 //		Room room = new Room();
 //		room.setRoomid(1);
-//		room.setRoomname("±ê×¼¼ä1");
-//		room.setBedtype("Ë«ÈË´²");
+//		room.setRoomname("æ ‡å‡†é—´1");
+//		room.setBedtype("åŒäººåºŠ");
 //		room.setRoomprice(300.0f);
 //		room.setRoomtotalnum(18);
 //		room.setRoomleftnum(15);
 //		room.setHasbroadband(true);
-//		room.setDescription("½¨ÖşÃæ»ı£º21-24Æ½·½Ã×;Â¥²ã£º2-6²ã;´²ĞÍ£ºµ¥ÈË´²1.1Ã×£¬2ÕÅ;¿É¼Ó´²£ºRMB 100/´²/¼äÒ¹;×î¶àÈë×¡ÈËÊı£º2ÈË");
+//		room.setDescription("å»ºç­‘é¢ç§¯ï¼š21-24å¹³æ–¹ç±³;æ¥¼å±‚ï¼š2-6å±‚;åºŠå‹ï¼šå•äººåºŠ1.1ç±³ï¼Œ2å¼ ;å¯åŠ åºŠï¼šRMB 100/åºŠ/é—´å¤œ;æœ€å¤šå…¥ä½äººæ•°ï¼š2äºº");
 //		room.setImginfo("1.png;2.png");
 //		
 //		roomService.updateRoom(room);

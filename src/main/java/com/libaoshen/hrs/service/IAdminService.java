@@ -5,15 +5,15 @@ import java.util.List;
 import com.libaoshen.hrs.bean.Admin;
 
 /**
- * ¹ÜÀíÔ±·şÎñÀà
+ * ç®¡ç†å‘˜æœåŠ¡ç±»
  * @author 404
  *
  */
 public interface IAdminService {
-	//¸ù¾İÖ÷¼üid²éÕÒ¹ÜÀíÔ±
+	//æ ¹æ®ä¸»é”®idæŸ¥æ‰¾ç®¡ç†å‘˜
 	public Admin getAdminById(int adminId);
-	//¸ù¾İuniqueÖµadminName²éÕÒ¹ÜÀíÔ±
+	//æ ¹æ®uniqueå€¼adminNameæŸ¥æ‰¾ç®¡ç†å‘˜
 	public Admin getAdminByAdminName(String adminName);
-	//²éÑ¯ËùÓĞµÄ¹ÜÀíÔ±ĞÅÏ¢
+	//æŸ¥è¯¢æ‰€æœ‰çš„ç®¡ç†å‘˜ä¿¡æ¯
 	public List<Admin> getAllAdmin();
 }

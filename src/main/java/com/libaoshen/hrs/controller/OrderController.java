@@ -34,19 +34,19 @@ public class OrderController {
 	public IOrderService orderService;
 	@Resource
 	public IUserService userService;
-	//¼ÇÂ¼ÖØ¸´Ìá½»µÄÉÏÒ»´ÎµÄ¶©µ¥ĞÅÏ¢
+	//è®°å½•é‡å¤æäº¤çš„ä¸Šä¸€æ¬¡çš„è®¢å•ä¿¡æ¯
 	private static Order order_previous = new Order();
-	//¼ÇÂ¼ºóÌ¨¶©µ¥·ÖÒ³Êı
+	//è®°å½•åå°è®¢å•åˆ†é¡µæ•°
 	private int pageSize = 5;
 	
 	/**
-	 * ¶©µ¥¹ÜÀí
+	 * è®¢å•ç®¡ç†
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping({"/",""})
 	public String toOrder(Model model, HttpServletRequest request) {
-		model.addAttribute("title", "¶©µ¥¹ÜÀí");
+		model.addAttribute("title", "è®¢å•ç®¡ç†");
 		model.addAttribute(new Room());
 		List<Order> orderList = orderService.getAllOrder();
 		model.addAttribute("orderpagesize", pageSize);
@@ -55,10 +55,10 @@ public class OrderController {
 	}
 	
 	/**
-	 * ajax·ÖÒ³´¦ÀíËùÓĞµÄ¶©µ¥
-	 * @param pageIndex µ±Ç°Ò³Êı
-	 * @param pageSize Ã¿Ò³´óĞ¡
-	 * @param totalPage ×Ü¹²µÄÊı¾İÊı
+	 * ajaxåˆ†é¡µå¤„ç†æ‰€æœ‰çš„è®¢å•
+	 * @param pageIndex å½“å‰é¡µæ•°
+	 * @param pageSize æ¯é¡µå¤§å°
+	 * @param totalPage æ€»å…±çš„æ•°æ®æ•°
 	 * @return
 	 */
 	@RequestMapping("/ajax_operation1")
@@ -67,10 +67,10 @@ public class OrderController {
     } 
 	
 	/**
-	 * ajax·ÖÒ³´¦ÀíËùÓĞµÄ¶©µ¥,·µ»Ø×ÜÊı
-	 * @param pageIndex µ±Ç°Ò³Êı
-	 * @param pageSize Ã¿Ò³´óĞ¡
-	 * @param totalPage ×Ü¹²µÄÊı¾İÊı
+	 * ajaxåˆ†é¡µå¤„ç†æ‰€æœ‰çš„è®¢å•,è¿”å›æ€»æ•°
+	 * @param pageIndex å½“å‰é¡µæ•°
+	 * @param pageSize æ¯é¡µå¤§å°
+	 * @param totalPage æ€»å…±çš„æ•°æ®æ•°
 	 * @return
 	 */
 	@RequestMapping("/ajax_operation11")
@@ -83,10 +83,10 @@ public class OrderController {
     }
 	
 	/**
-	 * ajax·ÖÒ³´¦Àí½ñÈÕµÄ¶©µ¥
-	 * @param pageIndex µ±Ç°Ò³Êı
-	 * @param pageSize Ã¿Ò³´óĞ¡
-	 * @param totalPage ×Ü¹²µÄÊı¾İÊı
+	 * ajaxåˆ†é¡µå¤„ç†ä»Šæ—¥çš„è®¢å•
+	 * @param pageIndex å½“å‰é¡µæ•°
+	 * @param pageSize æ¯é¡µå¤§å°
+	 * @param totalPage æ€»å…±çš„æ•°æ®æ•°
 	 * @return
 	 */
 	@RequestMapping("/ajax_operation2")
@@ -95,18 +95,18 @@ public class OrderController {
     }  
 	
 	/**
-	 * ajax·ÖÒ³´¦Àí½ñÈÕµÄ¶©µ¥,·µ»Ø×ÜÊı
-	 * @param pageIndex µ±Ç°Ò³Êı
-	 * @param pageSize Ã¿Ò³´óĞ¡
-	 * @param totalPage ×Ü¹²µÄÊı¾İÊı
+	 * ajaxåˆ†é¡µå¤„ç†ä»Šæ—¥çš„è®¢å•,è¿”å›æ€»æ•°
+	 * @param pageIndex å½“å‰é¡µæ•°
+	 * @param pageSize æ¯é¡µå¤§å°
+	 * @param totalPage æ€»å…±çš„æ•°æ®æ•°
 	 * @return
 	 */
 	@RequestMapping("/ajax_operation22")
 	public @ResponseBody List<Integer> findContactAjax22() {  
 		List<Order> orderList11 = orderService.getAllOrder();
-		//¼ÆÊı
+		//è®¡æ•°
 		int count = 0;
-		//Çócount
+		//æ±‚count
 		for(int i =0 ; i < orderList11.size(); i++) {
 			Order o = orderList11.get(i);
 			SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");  
@@ -123,10 +123,10 @@ public class OrderController {
     }
 	
 	/**
-	 * ajax·ÖÒ³´¦ÀíÎ´Ö§¸¶µÄ¶©µ¥
-	 * @param pageIndex µ±Ç°Ò³Êı
-	 * @param pageSize Ã¿Ò³´óĞ¡
-	 * @param totalPage ×Ü¹²µÄÊı¾İÊı
+	 * ajaxåˆ†é¡µå¤„ç†æœªæ”¯ä»˜çš„è®¢å•
+	 * @param pageIndex å½“å‰é¡µæ•°
+	 * @param pageSize æ¯é¡µå¤§å°
+	 * @param totalPage æ€»å…±çš„æ•°æ®æ•°
 	 * @return
 	 */
 	@RequestMapping("/ajax_operation3")
@@ -135,21 +135,21 @@ public class OrderController {
     }  
 	
 	/**
-	 * ajax·ÖÒ³´¦ÀíÎ´Ö§¸¶µÄ¶©µ¥,·µ»Ø×ÜÊı
-	 * @param pageIndex µ±Ç°Ò³Êı
-	 * @param pageSize Ã¿Ò³´óĞ¡
-	 * @param totalPage ×Ü¹²µÄÊı¾İÊı
+	 * ajaxåˆ†é¡µå¤„ç†æœªæ”¯ä»˜çš„è®¢å•,è¿”å›æ€»æ•°
+	 * @param pageIndex å½“å‰é¡µæ•°
+	 * @param pageSize æ¯é¡µå¤§å°
+	 * @param totalPage æ€»å…±çš„æ•°æ®æ•°
 	 * @return
 	 */
 	@RequestMapping("/ajax_operation33")
 	public @ResponseBody List<Integer> findContactAjax33() {  
 		List<Order> orderList11 = orderService.getAllOrder();
-		//¼ÆÊı
+		//è®¡æ•°
 		int count = 0;
-		//Çócount
+		//æ±‚count
 		for(int i =0 ; i < orderList11.size(); i++) {
 			Order o = orderList11.get(i);
-			if(o.getOrderstate().equals("Î´Ö§¸¶")) {
+			if(o.getOrderstate().equals("æœªæ”¯ä»˜")) {
 				count++;
 			}
 		}
@@ -163,10 +163,10 @@ public class OrderController {
 	
 	
 	/**
-	 * ajax·ÖÒ³´¦ÀíÒÑÖ§¸¶µÄ¶©µ¥
-	 * @param pageIndex µ±Ç°Ò³Êı
-	 * @param pageSize Ã¿Ò³´óĞ¡
-	 * @param totalPage ×Ü¹²µÄÊı¾İÊı
+	 * ajaxåˆ†é¡µå¤„ç†å·²æ”¯ä»˜çš„è®¢å•
+	 * @param pageIndex å½“å‰é¡µæ•°
+	 * @param pageSize æ¯é¡µå¤§å°
+	 * @param totalPage æ€»å…±çš„æ•°æ®æ•°
 	 * @return
 	 */
 	@RequestMapping("/ajax_operation4")
@@ -175,21 +175,21 @@ public class OrderController {
     } 
 	
 	/**
-	 * ajax·ÖÒ³´¦ÀíÒÑÖ§¸¶µÄ¶©µ¥,·µ»Ø×ÜÊı
-	 * @param pageIndex µ±Ç°Ò³Êı
-	 * @param pageSize Ã¿Ò³´óĞ¡
-	 * @param totalPage ×Ü¹²µÄÊı¾İÊı
+	 * ajaxåˆ†é¡µå¤„ç†å·²æ”¯ä»˜çš„è®¢å•,è¿”å›æ€»æ•°
+	 * @param pageIndex å½“å‰é¡µæ•°
+	 * @param pageSize æ¯é¡µå¤§å°
+	 * @param totalPage æ€»å…±çš„æ•°æ®æ•°
 	 * @return
 	 */
 	@RequestMapping("/ajax_operation44")
 	public @ResponseBody List<Integer> findContactAjax44() {  
 		List<Order> orderList11 = orderService.getAllOrder();
-		//¼ÆÊı
+		//è®¡æ•°
 		int count = 0;
-		//Çócount
+		//æ±‚count
 		for(int i =0 ; i < orderList11.size(); i++) {
 			Order o = orderList11.get(i);
-			if(o.getOrderstate().equals("ÒÑÖ§¸¶")) {
+			if(o.getOrderstate().equals("å·²æ”¯ä»˜")) {
 				count++;
 			}
 		}
@@ -201,10 +201,10 @@ public class OrderController {
     }
 	
 	/**
-	 * ajax·ÖÒ³´¦ÀíÒÑÊ§Ğ§µÄ¶©µ¥
-	 * @param pageIndex µ±Ç°Ò³Êı
-	 * @param pageSize Ã¿Ò³´óĞ¡
-	 * @param totalPage ×Ü¹²µÄÊı¾İÊı
+	 * ajaxåˆ†é¡µå¤„ç†å·²å¤±æ•ˆçš„è®¢å•
+	 * @param pageIndex å½“å‰é¡µæ•°
+	 * @param pageSize æ¯é¡µå¤§å°
+	 * @param totalPage æ€»å…±çš„æ•°æ®æ•°
 	 * @return
 	 */
 	@RequestMapping("/ajax_operation5")
@@ -213,21 +213,21 @@ public class OrderController {
     } 
 	
 	/**
-	 * ajax·ÖÒ³´¦ÀíÒÑÖ§¸¶µÄ¶©µ¥,·µ»Ø×ÜÊı
-	 * @param pageIndex µ±Ç°Ò³Êı
-	 * @param pageSize Ã¿Ò³´óĞ¡
-	 * @param totalPage ×Ü¹²µÄÊı¾İÊı
+	 * ajaxåˆ†é¡µå¤„ç†å·²æ”¯ä»˜çš„è®¢å•,è¿”å›æ€»æ•°
+	 * @param pageIndex å½“å‰é¡µæ•°
+	 * @param pageSize æ¯é¡µå¤§å°
+	 * @param totalPage æ€»å…±çš„æ•°æ®æ•°
 	 * @return
 	 */
 	@RequestMapping("/ajax_operation55")
 	public @ResponseBody List<Integer> findContactAjax55() {  
 		List<Order> orderList11 = orderService.getAllOrder();
-		//¼ÆÊı
+		//è®¡æ•°
 		int count = 0;
-		//Çócount
+		//æ±‚count
 		for(int i =0 ; i < orderList11.size(); i++) {
 			Order o = orderList11.get(i);
-			if(o.getOrderstate().equals("ÒÑÊ§Ğ§")) {
+			if(o.getOrderstate().equals("å·²å¤±æ•ˆ")) {
 				count++;
 			}
 		}
@@ -239,7 +239,7 @@ public class OrderController {
     }
 	
 	/**
-	 * ajaxºóÌ¨²éÑ¯¶©µ¥Í¨ÓÃº¯Êı
+	 * ajaxåå°æŸ¥è¯¢è®¢å•é€šç”¨å‡½æ•°
 	 * @param pageIndex
 	 * @param pageSize
 	 * @param totalPage
@@ -252,13 +252,13 @@ public class OrderController {
 		Date now = new java.sql.Date(new java.util.Date().getTime());
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd");  
 		
-		//Ë¢ĞÂ¶©µ¥µÄ×´Ì¬
+		//åˆ·æ–°è®¢å•çš„çŠ¶æ€
 		for(Order o : orderList11) {
 			Room room = roomService.getRoomById(o.getRoomid());
-			if(o.getDeadline().compareTo(now) < 0 && o.getOrderstate() != "ÒÑÖ§¸¶") {
-				o.setOrderstate("ÒÑÊ§Ğ§");
+			if(o.getDeadline().compareTo(now) < 0 && o.getOrderstate() != "å·²æ”¯ä»˜") {
+				o.setOrderstate("å·²å¤±æ•ˆ");
 				room.setRoomleftnum(room.getRoomleftnum() + o.getRoomnum());
-			}else if(o.getOrderstate() != "ÒÑÖ§¸¶" && o.getEndtime().compareTo(now) < 0) {
+			}else if(o.getOrderstate() != "å·²æ”¯ä»˜" && o.getEndtime().compareTo(now) < 0) {
 				room.setRoomleftnum(room.getRoomleftnum() + o.getRoomnum());
 			}
 			
@@ -266,59 +266,59 @@ public class OrderController {
 			roomService.updateRoom(room);
 		}
 		
-		if(kind == 1) {//ËùÓĞ¶©µ¥
+		if(kind == 1) {//æ‰€æœ‰è®¢å•
 			orderList = orderList11;
-		}else if(kind == 2) {//½ñÈÕ¶©µ¥
+		}else if(kind == 2) {//ä»Šæ—¥è®¢å•
 			for(int i = 0 ; i < orderList11.size(); i++) {
 				Order o = orderList11.get(i);
 				if(sdf.format(o.getOrdertime()).equals(sdf.format(now))) {
 					orderList.add(o);
 				}
 			}
-		}else if(kind == 3) {//Î´Ö§¸¶¶©µ¥
+		}else if(kind == 3) {//æœªæ”¯ä»˜è®¢å•
 			for(int i = 0 ; i < orderList11.size(); i++) {
 				Order o = orderList11.get(i);
-				if(o.getOrderstate().equals("Î´Ö§¸¶")) {
+				if(o.getOrderstate().equals("æœªæ”¯ä»˜")) {
 					orderList.add(o);
 				}
 			}
-		}else if(kind == 4) {//ÒÑÖ§¸¶¶©µ¥
+		}else if(kind == 4) {//å·²æ”¯ä»˜è®¢å•
 			for(int i = 0 ; i < orderList11.size(); i++) {
 				Order o = orderList11.get(i);
-				if(o.getOrderstate().equals("ÒÑÖ§¸¶")) {
+				if(o.getOrderstate().equals("å·²æ”¯ä»˜")) {
 					orderList.add(o);
 				}
 			}
 		}else if(kind == 5) {
 			for(int i = 0 ; i < orderList11.size(); i++) {
 				Order o = orderList11.get(i);
-				if(o.getOrderstate().equals("ÒÑÊ§Ğ§")) {
+				if(o.getOrderstate().equals("å·²å¤±æ•ˆ")) {
 					orderList.add(o);
 				}
 			}
 		}
 		
 		//System.out.println(orderList.size());
-		//»ñÈ¡µ±Ç°Ò³ÊıºÍÃ¿Ò³´óĞ¡
+		//è·å–å½“å‰é¡µæ•°å’Œæ¯é¡µå¤§å°
 		Integer pageIndex1 = Integer.parseInt(pageIndex);
 		Integer pageSize1 = Integer.parseInt(pageSize);
 		Integer totalPage1 = Integer.parseInt(totalPage);
 //		System.out.println(pageIndex1);
 //		System.out.println(pageSize1);
 //		System.out.println(totalPage);
-		//»ñÈ¡ÏàÓ¦Ò³µÄÊı¾İ
+		//è·å–ç›¸åº”é¡µçš„æ•°æ®
 		List<User> userList = new ArrayList<User>();
 		List<Room> roomList = new ArrayList<Room>();
 		List<List<String>> dateList = new ArrayList<List<String>>(); 
-		//¸ñÊ½»¯ÈÕÆÚ
-		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ");
-		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ HHÊ±mm·ÖssÃë");
-		//Ñ­»··¿¼äºÍÓÃ»§ÒÔ¼°Ê±¼äÊı¾İ
+		//æ ¼å¼åŒ–æ—¥æœŸ
+		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥");
+		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ HHæ—¶mmåˆ†ssç§’");
+		//å¾ªç¯æˆ¿é—´å’Œç”¨æˆ·ä»¥åŠæ—¶é—´æ•°æ®
 		for(int i =0 ; i < orderList.size(); i++) {
 			Order o = orderList.get(i);
 			roomList.add(roomService.getRoomById(o.getRoomid()));
 			userList.add(userService.getUserById(o.getUserid()));
-			//¶¨Òålist±£´æ¸ñÊ½»¯Ê±¼ä
+			//å®šä¹‰listä¿å­˜æ ¼å¼åŒ–æ—¶é—´
 			List<String> date = new ArrayList<String>();
 					
 			date.add(sdf2.format(o.getOrdertime()));
@@ -336,13 +336,13 @@ public class OrderController {
 			dateList.add(date);
 		}
 				
-		//±£´æ·ÖÒ³µÄÊı¾İ
+		//ä¿å­˜åˆ†é¡µçš„æ•°æ®
 		List<Room> roomList1 = null;
 		List<Order> orderList1 = null;
 		List<User> userList1 = null;
 		List<List<String>> dateList1 = null;
 		//System.out.println(totalPage1/pageSize1);
-		//»ñÈ¡·ÖÒ³Êı¾İ
+		//è·å–åˆ†é¡µæ•°æ®
 		if(pageIndex1 <= totalPage1/pageSize1){
 			orderList1 = orderList.subList((pageIndex1-1) * pageSize1, pageIndex1 * pageSize1);
 			roomList1 = roomList.subList((pageIndex1-1) * pageSize1, pageIndex1 * pageSize1);
@@ -355,7 +355,7 @@ public class OrderController {
 			dateList1 = dateList.subList((pageIndex1-1) * pageSize1, totalPage1);
 		}
 				
-		//±£´æÊı¾İ²¢·µ»Ø
+		//ä¿å­˜æ•°æ®å¹¶è¿”å›
 		List<Object> resultList = new ArrayList<Object>();
 		resultList.add(orderList1);
 		resultList.add(roomList1);
@@ -367,24 +367,24 @@ public class OrderController {
 	 
 	
 	/**
-	 * Ç°Ì¨ÏÔÊ¾ÓÃ»§¶©µ¥
+	 * å‰å°æ˜¾ç¤ºç”¨æˆ·è®¢å•
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping("/showUserOrder")
 	public String showUserOrder(HttpServletRequest request) {
-		//»ñÈ¡ÓÃ»§ĞÅÏ¢
+		//è·å–ç”¨æˆ·ä¿¡æ¯
 		User user = (User)request.getSession().getAttribute("user");
 		List<Room> roomList = new ArrayList<Room>();
 		List<List<String>> dateList = new ArrayList<List<String>>(); 
 		
-		//²éÑ¯ÓÃ»§µÄ¶©µ¥
+		//æŸ¥è¯¢ç”¨æˆ·çš„è®¢å•
 		List<Order> orderList = orderService.getOrdersByUserId(user.getUserid());
-		//¸ñÊ½»¯Ê±¼äĞÅÏ¢
+		//æ ¼å¼åŒ–æ—¶é—´ä¿¡æ¯
 		for(int i =0 ; i < orderList.size(); i++) {
 			Order o = orderList.get(i);
-			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ");
-			SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ HHÊ±mm·ÖssÃë");
+			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥");
+			SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ HHæ—¶mmåˆ†ssç§’");
 			roomList.add(roomService.getRoomById(o.getRoomid()));
 			List<String> date = new ArrayList<String>();
 			
@@ -402,17 +402,17 @@ public class OrderController {
 			
 			dateList.add(date);
 		} 
-		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ");
+		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥");
 		request.setAttribute("today", sdf1.format(new java.sql.Date(new java.util.Date().getTime())));
 		request.setAttribute("dateList", dateList);
 		request.setAttribute("orderList", orderList);
 		request.setAttribute("roomList", roomList);
-		request.setAttribute("title", "ÓÃ»§¶©µ¥");
+		request.setAttribute("title", "ç”¨æˆ·è®¢å•");
 		return "showUserOrder";
 	}
 	
 	/**
-	 * ÏÔÊ¾Ìí¼Ó¶©µ¥½çÃæ
+	 * æ˜¾ç¤ºæ·»åŠ è®¢å•ç•Œé¢
 	 * @param model
 	 * @param request
 	 * @return
@@ -440,35 +440,35 @@ public class OrderController {
 	    //System.out.println(enddate);
 		
 		//System.out.println(roomid + startdate + enddate);
-		//¸ù¾İroomid²éÑ¯room
+		//æ ¹æ®roomidæŸ¥è¯¢room
 		Room room = roomService.getRoomById(roomid);
 		model.addAttribute("room", room);
 		model.addAttribute("startdate", startdate);
 		model.addAttribute("enddate", enddate);
 		model.addAttribute("days", days);
 		model.addAttribute(new Order());
-		model.addAttribute("title", "¶©µ¥ÌîĞ´");
+		model.addAttribute("title", "è®¢å•å¡«å†™");
 		
-		//´´½¨ÁîÅÆ,·ÀÖ¹ÖØ¸´Ìá½»
+		//åˆ›å»ºä»¤ç‰Œ,é˜²æ­¢é‡å¤æäº¤
 		String token = TokenProccessor.getInstance().makeToken();
-		request.getSession().setAttribute("token", token);//ÔÚ·şÎñÆ÷Ê¹ÓÃsession±£´æÁîÅÆ
+		request.getSession().setAttribute("token", token);//åœ¨æœåŠ¡å™¨ä½¿ç”¨sessionä¿å­˜ä»¤ç‰Œ
 		return "showAddOrder";
 	}
 	
 	/**
-	 * Ìí¼Ó¶©µ¥
+	 * æ·»åŠ è®¢å•
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping("/addOrder")
 	public String addOrder(HttpServletRequest request) {
 		
-		boolean b = isRepeatSubmit(request);//ÅĞ¶ÏÓÃ»§ÊÇ·ñÖØ¸´Ìá½»
+		boolean b = isRepeatSubmit(request);//åˆ¤æ–­ç”¨æˆ·æ˜¯å¦é‡å¤æäº¤
 		if(b == true) {
 			User user1 = userService.getUserById(order_previous.getUserid());
 			Room room1 = roomService.getRoomById(order_previous.getRoomid());
-			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ");
-			SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ HHÊ±mm·ÖssÃë");
+			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥");
+			SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ HHæ—¶mmåˆ†ssç§’");
 			request.setAttribute("order", order_previous);
 			request.setAttribute("startdate", sdf1.format(order_previous.getStarttime()));
 			request.setAttribute("enddate", sdf1.format(order_previous.getEndtime()));
@@ -476,31 +476,31 @@ public class OrderController {
 			request.setAttribute("deadline", sdf2.format(order_previous.getDeadline()));
 			request.setAttribute("user", user1);
 			request.setAttribute("room", room1);
-			request.setAttribute("title", "ÔÚÏßÖ§¸¶");
+			request.setAttribute("title", "åœ¨çº¿æ”¯ä»˜");
 			
 			return "showOrderPay";
 		}
 		
-		request.getSession().removeAttribute("token");//ÒÆ³ısessionÖĞµÄtoken
+		request.getSession().removeAttribute("token");//ç§»é™¤sessionä¸­çš„token
 		Order order = new Order();
 		
-		//»ñÈ¡·¿ĞÍĞÅÏ¢
+		//è·å–æˆ¿å‹ä¿¡æ¯
 		Integer roomId = Integer.parseInt(request.getParameter("roomid"));
 		Room room = roomService.getRoomById(roomId);
 		
 
-		//»ñÈ¡ÆğÊ¼Ê±¼äºÍ¶©µ¥Ìá½»Ê±¼äºÍip
+		//è·å–èµ·å§‹æ—¶é—´å’Œè®¢å•æäº¤æ—¶é—´å’Œip
 		String startDate = request.getParameter("startdate");
 		String endDate = request.getParameter("enddate");
-		//»ñÈ¡ÌìÊı
+		//è·å–å¤©æ•°
 		Integer days = Integer.parseInt(request.getParameter("days"));
-		//»ñÈ¡ÓÃ»§ĞÅÏ¢
+		//è·å–ç”¨æˆ·ä¿¡æ¯
 		User user = (User) request.getSession().getAttribute("user");
 		//System.out.println(user.getUserid());
 		String tel = user.getPhone();
 		String tel_request = request.getParameter("phone");
 		if(!tel.equals(tel_request)) {
-			request.setAttribute("message", "ÊÖ»úºÅÂë²»Æ¥Åä");
+			request.setAttribute("message", "æ‰‹æœºå·ç ä¸åŒ¹é…");
 			request.setAttribute("room", room);
 			request.setAttribute("startDate", startDate );
 			request.setAttribute("endDate", "endDate");
@@ -527,35 +527,35 @@ public class OrderController {
 			String ip = getRemoteHost(request);
 			order.setOrderip(ip);
 			
-			//»ñÈ¡¶©µ¥×Ü¼ÛºÍ·¿¼äÊıÁ¿
+			//è·å–è®¢å•æ€»ä»·å’Œæˆ¿é—´æ•°é‡
 			Float totalPrice = Float.parseFloat(request.getParameter("roomtotalprice"));
 			order.setTotalprice(totalPrice);
 			Integer roomNum = Integer.parseInt(request.getParameter("roomnumber"));
 			order.setRoomnum(roomNum);
-			//»ñÈ¡µÇ¼ÇĞÅÏ¢
+			//è·å–ç™»è®°ä¿¡æ¯
 			String registerInfo = "";
 			for(int i = 1;i <= roomNum;i++) {
 				registerInfo += request.getParameter("room"+ i) + ";";
 			}
 			order.setRegisterinfo(registerInfo);
 			
-			//ÉèÖÃ¹ıÆÚÊ±¼ä´Á
+			//è®¾ç½®è¿‡æœŸæ—¶é—´æˆ³
 			Date time1 = new Date(time.getTime() + 1800000 );
 			order.setDeadline(time1);
-			//¼õÉÙ·¿¼äÊıÁ¿
+			//å‡å°‘æˆ¿é—´æ•°é‡
 			room.setRoomleftnum(room.getRoomtotalnum() - order.getRoomnum());
 			roomService.updateRoom(room);
-			//ÉèÖÃ¶©µ¥×´Ì¬
-			order.setOrderstate("Î´Ö§¸¶");
+			//è®¾ç½®è®¢å•çŠ¶æ€
+			order.setOrderstate("æœªæ”¯ä»˜");
 			
-			//±£´æ¶©µ¥µ½Êı¾İ¿â
+			//ä¿å­˜è®¢å•åˆ°æ•°æ®åº“
 			orderService.addOrder(order);
 			order_previous = order;
 			//System.out.println(startDate + endDate + totalPrice + roomNum + registerInfo);
-			//·µ»ØÏà¹ØĞÅÏ¢
+			//è¿”å›ç›¸å…³ä¿¡æ¯
 			
-			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ");
-			SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ HHÊ±mm·ÖssÃë");
+			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥");
+			SimpleDateFormat sdf2 = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ HHæ—¶mmåˆ†ssç§’");
 			request.setAttribute("order", order);
 			request.setAttribute("startdate", sdf1.format(order.getStarttime()));
 			request.setAttribute("enddate", sdf1.format(order.getEndtime()));
@@ -564,17 +564,17 @@ public class OrderController {
 			request.setAttribute("user", user);
 			request.setAttribute("room", room);
 			request.setAttribute("order", order);
-			request.setAttribute("title", "ÔÚÏßÖ§¸¶");
-			//´´½¨ÁîÅÆ,·ÀÖ¹ÖØ¸´Ìá½»
+			request.setAttribute("title", "åœ¨çº¿æ”¯ä»˜");
+			//åˆ›å»ºä»¤ç‰Œ,é˜²æ­¢é‡å¤æäº¤
 			String token = TokenProccessor.getInstance().makeToken();
-			request.getSession().setAttribute("token", token);//ÔÚ·şÎñÆ÷Ê¹ÓÃsession±£´æÁîÅÆ
+			request.getSession().setAttribute("token", token);//åœ¨æœåŠ¡å™¨ä½¿ç”¨sessionä¿å­˜ä»¤ç‰Œ
 			
 			return "showOrderPay";
 		}
 	}
 	
 	/**
-	 * ÏÔÊ¾Ö§¸¶½çÃæ
+	 * æ˜¾ç¤ºæ”¯ä»˜ç•Œé¢
 	 * @param request
 	 * @return
 	 */
@@ -586,14 +586,14 @@ public class OrderController {
 		Room room = roomService.getRoomById(order.getRoomid());
 		Date time= new java.sql.Date(new java.util.Date().getTime());
 		if(time.compareTo(order.getDeadline()) > 0) {
-			//order.setOrderstate("ÒÑÊ§Ğ§");
+			//order.setOrderstate("å·²å¤±æ•ˆ");
 			//room.setRoomleftnum(room.getRoomtotalnum() + order.getRoomnum());
 			//roomService.updateRoom(room);
 			//orderService.updateOrder(order);
 			return "showOrderInvalid";
 		}else {
-			SimpleDateFormat sdf = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ");
-			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ HHÊ±mm·ÖssÃë");
+			SimpleDateFormat sdf = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥");
+			SimpleDateFormat sdf1 = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ HHæ—¶mmåˆ†ssç§’");
 			request.setAttribute("startdate", sdf.format(order.getStarttime()));
 			request.setAttribute("enddate", sdf.format(order.getEndtime()));
 			request.setAttribute("ordertime", sdf1.format(order.getOrdertime()));
@@ -601,26 +601,26 @@ public class OrderController {
 			request.setAttribute("user", user);
 			request.setAttribute("room", room);
 			request.setAttribute("order", order);
-			request.setAttribute("title", "ÔÚÏßÖ§¸¶");
+			request.setAttribute("title", "åœ¨çº¿æ”¯ä»˜");
 			return "showOrderPay";
 		}
 	}
 	
 	/**
-	 * Ö§¸¶
+	 * æ”¯ä»˜
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping("/pay")
 	public String pay(HttpServletRequest request) {
 		
-		boolean b = isRepeatSubmit(request);//ÅĞ¶ÏÓÃ»§ÊÇ·ñÖØ¸´Ìá½»
+		boolean b = isRepeatSubmit(request);//åˆ¤æ–­ç”¨æˆ·æ˜¯å¦é‡å¤æäº¤
 		if(b == true) {
-			request.setAttribute("title", "¶©µ¥Íê³É");
+			request.setAttribute("title", "è®¢å•å®Œæˆ");
 			return "showOrderSuccess";
 		}
 		
-		request.getSession().removeAttribute("token");//ÒÆ³ısessionÖĞµÄtoken
+		request.getSession().removeAttribute("token");//ç§»é™¤sessionä¸­çš„token
 		
 		String payMethod = request.getParameter("pay"); 
 		String orderId = request.getParameter("orderid");
@@ -637,16 +637,16 @@ public class OrderController {
 		}else {
 			Order order = orderService.getOrderById(orderId1);
 			Date paytime= new java.sql.Date(new java.util.Date().getTime());
-			order.setOrderstate("ÒÑÖ§¸¶");
+			order.setOrderstate("å·²æ”¯ä»˜");
 			order.setPaytime(paytime);
 			orderService.updateOrder(order);
-			request.setAttribute("title", "¶©µ¥Íê³É");
+			request.setAttribute("title", "è®¢å•å®Œæˆ");
 			return "showOrderSuccess";
 		}
 	}
 	
 	/**
-	 * Ö§¸¶±¦
+	 * æ”¯ä»˜å®
 	 * @return
 	 */
 	public boolean zhifubao() {
@@ -654,7 +654,7 @@ public class OrderController {
 	}
 	
 	/**
-	 * Î¢ĞÅ
+	 * å¾®ä¿¡
 	 * @return
 	 */
 	public boolean weixin() {
@@ -662,25 +662,25 @@ public class OrderController {
 	}
 	
 	 /**
-     * ÅĞ¶Ï¿Í»§¶ËÌá½»ÉÏÀ´µÄÁîÅÆºÍ·şÎñÆ÷¶ËÉú³ÉµÄÁîÅÆÊÇ·ñÒ»ÖÂ
+     * åˆ¤æ–­å®¢æˆ·ç«¯æäº¤ä¸Šæ¥çš„ä»¤ç‰Œå’ŒæœåŠ¡å™¨ç«¯ç”Ÿæˆçš„ä»¤ç‰Œæ˜¯å¦ä¸€è‡´
      * @param request
      * @return 
-     *         true ÓÃ»§ÖØ¸´Ìá½»ÁË±íµ¥ 
-     *         false ÓÃ»§Ã»ÓĞÖØ¸´Ìá½»±íµ¥
+     *         true ç”¨æˆ·é‡å¤æäº¤äº†è¡¨å• 
+     *         false ç”¨æˆ·æ²¡æœ‰é‡å¤æäº¤è¡¨å•
      */
     private boolean isRepeatSubmit(HttpServletRequest request) {
         String client_token = request.getParameter("token");
-        //1¡¢Èç¹ûÓÃ»§Ìá½»µÄ±íµ¥Êı¾İÖĞÃ»ÓĞtoken£¬ÔòÓÃ»§ÊÇÖØ¸´Ìá½»ÁË±íµ¥
+        //1ã€å¦‚æœç”¨æˆ·æäº¤çš„è¡¨å•æ•°æ®ä¸­æ²¡æœ‰tokenï¼Œåˆ™ç”¨æˆ·æ˜¯é‡å¤æäº¤äº†è¡¨å•
         if(client_token==null){
             return true;
         }
-        //È¡³ö´æ´¢ÔÚSessionÖĞµÄtoken
+        //å–å‡ºå­˜å‚¨åœ¨Sessionä¸­çš„token
         String server_token = (String) request.getSession().getAttribute("token");
-        //2¡¢Èç¹ûµ±Ç°ÓÃ»§µÄSessionÖĞ²»´æÔÚToken(ÁîÅÆ)£¬ÔòÓÃ»§ÊÇÖØ¸´Ìá½»ÁË±íµ¥
+        //2ã€å¦‚æœå½“å‰ç”¨æˆ·çš„Sessionä¸­ä¸å­˜åœ¨Token(ä»¤ç‰Œ)ï¼Œåˆ™ç”¨æˆ·æ˜¯é‡å¤æäº¤äº†è¡¨å•
         if(server_token==null){
             return true;
         }
-        //3¡¢´æ´¢ÔÚSessionÖĞµÄToken(ÁîÅÆ)Óë±íµ¥Ìá½»µÄToken(ÁîÅÆ)²»Í¬£¬ÔòÓÃ»§ÊÇÖØ¸´Ìá½»ÁË±íµ¥
+        //3ã€å­˜å‚¨åœ¨Sessionä¸­çš„Token(ä»¤ç‰Œ)ä¸è¡¨å•æäº¤çš„Token(ä»¤ç‰Œ)ä¸åŒï¼Œåˆ™ç”¨æˆ·æ˜¯é‡å¤æäº¤äº†è¡¨å•
         if(!client_token.equals(server_token)){
             return true;
         }
@@ -690,7 +690,7 @@ public class OrderController {
 	
 	
 	/**
-	 * »ñÈ¡ÕæÊµµÄipµØÖ·
+	 * è·å–çœŸå®çš„ipåœ°å€
 	 * @param request
 	 * @return
 	 */

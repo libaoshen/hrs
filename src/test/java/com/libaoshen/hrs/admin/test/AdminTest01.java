@@ -15,11 +15,11 @@ import com.libaoshen.hrs.bean.Admin;
 import com.libaoshen.hrs.service.IAdminService;
 
 /**
- * ¹ÜÀíÔ±µ¥Ôª²âÊÔÀà
+ * ç®¡ç†å‘˜å•å…ƒæµ‹è¯•ç±»
  * @author 404
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)		//±íÊ¾¼Ì³ĞÁËSpringJUnit4ClassRunnerÀà
+@RunWith(SpringJUnit4ClassRunner.class)		//è¡¨ç¤ºç»§æ‰¿äº†SpringJUnit4ClassRunnerç±»
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
 public class AdminTest01 {
 	private static Logger logger = Logger.getLogger(AdminTest01.class);
@@ -30,7 +30,7 @@ public class AdminTest01 {
 	public void testMybatis(){
 		//Admin admin = adminService.getAdminById(1);
 		Admin admin = adminService.getAdminByAdminName("admin");
-		//²âÊÔĞÅÏ¢Êä³öÖÁÈÕÖ¾µ±ÖĞ
+		//æµ‹è¯•ä¿¡æ¯è¾“å‡ºè‡³æ—¥å¿—å½“ä¸­
 		logger.info(JSON.toJSONString(admin));
 		List<Admin> admins = adminService.getAllAdmin();
 		for(Admin a : admins){

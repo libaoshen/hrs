@@ -6,22 +6,22 @@ import javax.validation.constraints.Size;
 
 public class Room {
     private Integer roomid;
-    @NotNull(message="·¿ĞÍÃû²»ÄÜÎª¿Õ")
-    @Size(min=3,max=10,message="·¿ĞÍÃû×ÖÊıÔÚ3ÖÁ20×ÖÖ®¼ä")
+    @NotNull(message="æˆ¿å‹åä¸èƒ½ä¸ºç©º")
+    @Size(min=3,max=10,message="æˆ¿å‹åå­—æ•°åœ¨3è‡³20å­—ä¹‹é—´")
     private String roomname;
-    @NotNull(message="´²ĞÍÃû²»ÄÜÎª¿Õ")
-    @Size(min=3,max=10,message="´²ĞÍÃû×ÖÊıÔÚ3ÖÁ20×ÖÖ®¼ä")
+    @NotNull(message="åºŠå‹åä¸èƒ½ä¸ºç©º")
+    @Size(min=3,max=10,message="åºŠå‹åå­—æ•°åœ¨3è‡³20å­—ä¹‹é—´")
     private String bedtype;
-    @NotNull(message="Í¼Æ¬ĞÅÏ¢²»ÄÜÎª¿Õ")
+    @NotNull(message="å›¾ç‰‡ä¿¡æ¯ä¸èƒ½ä¸ºç©º")
     private String imginfo;
-    @NotNull(message="ÃèÊöĞÅÏ¢²»ÄÜÎª¿Õ")
-    @Size(max=100,message="ÃèÊöĞÅÏ¢×ÖÊı²»³¬¹ı100×Ö")
+    @NotNull(message="æè¿°ä¿¡æ¯ä¸èƒ½ä¸ºç©º")
+    @Size(max=100,message="æè¿°ä¿¡æ¯å­—æ•°ä¸è¶…è¿‡100å­—")
     private String description;
-    @DecimalMax(value="999999",message="Êı×Ö±ØĞëĞ¡ÓÚ999999")
+    @DecimalMax(value="999999",message="æ•°å­—å¿…é¡»å°äº999999")
     private Float roomprice;
     
     private Integer roomleftnum;
-    @DecimalMax(value="9999",message="Êı×Ö±ØĞëĞ¡ÓÚ9999")
+    @DecimalMax(value="9999",message="æ•°å­—å¿…é¡»å°äº9999")
     private Integer roomtotalnum;
 
     private Boolean hasbroadband;

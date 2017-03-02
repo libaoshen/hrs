@@ -5,7 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 public class MD5Util {
 	/**
-	 * byteÊı×é×ª»»Îª16½øÖÆ×Ö·û´®
+	 * byteæ•°ç»„è½¬æ¢ä¸º16è¿›åˆ¶å­—ç¬¦ä¸²
 	 * @param src
 	 * @return
 	 */
@@ -29,7 +29,7 @@ public class MD5Util {
     }
 	
 	/**
-	 * ½«Ò»¸ö×Ö·û´®×ªÎªMD5±àÂë
+	 * å°†ä¸€ä¸ªå­—ç¬¦ä¸²è½¬ä¸ºMD5ç¼–ç 
 	 * @param s
 	 * @return
 	 */

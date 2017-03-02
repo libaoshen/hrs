@@ -30,45 +30,45 @@ public class UserController {
 	IUserService userservice;
 	@Resource
 	IRoomService roomService;
-	//ÓÃ»§·ÖÒ³Êı
+	//ç”¨æˆ·åˆ†é¡µæ•°
 	private int pageSize1 = 5;
 	
 	/**
-	 * ÓÃ»§¹ÜÀí
+	 * ç”¨æˆ·ç®¡ç†
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping({"/",""})
 	public String toUser(Model model, HttpServletRequest request) {
-		model.addAttribute("title", "ÓÃ»§¹ÜÀí");
+		model.addAttribute("title", "ç”¨æˆ·ç®¡ç†");
 		model.addAttribute(new Room());
 		
 		List<User> userList = userservice.getAllUser();
-		//±£´æ·ÖÒ³ĞÅÏ¢
+		//ä¿å­˜åˆ†é¡µä¿¡æ¯
 		request.setAttribute("usercounts", userList.size());
 		request.setAttribute("userpagesize", pageSize1);
 		return "showUser";
 	}
 	
 	/**
-	 * ajax·ÖÒ³´¦Àí
-	 * @param pageIndex µ±Ç°Ò³Êı
-	 * @param pageSize Ã¿Ò³´óĞ¡
-	 * @param totalPage ×Ü¹²µÄÊı¾İÊı
+	 * ajaxåˆ†é¡µå¤„ç†
+	 * @param pageIndex å½“å‰é¡µæ•°
+	 * @param pageSize æ¯é¡µå¤§å°
+	 * @param totalPage æ€»å…±çš„æ•°æ®æ•°
 	 * @return
 	 */
 	@RequestMapping("/ajax_operation")
 	public @ResponseBody List<Object> findContactAjax(String pageIndex,String pageSize,String totalPage) {  
-	    //»ñÈ¡µ±Ç°Ò³ÊıºÍÃ¿Ò³´óĞ¡
+	    //è·å–å½“å‰é¡µæ•°å’Œæ¯é¡µå¤§å°
 		Integer pageIndex1 = Integer.parseInt(pageIndex);
 	    Integer pageSize1 = Integer.parseInt(pageSize);
 	    Integer totalPage1 = Integer.parseInt(totalPage);
 	    //System.out.println(pageIndex1);
 	    //System.out.println(pageSize1);
-	    //»ñÈ¡ÏàÓ¦Ò³µÄÊı¾İ
+	    //è·å–ç›¸åº”é¡µçš„æ•°æ®
 		List<User> userList = userservice.getAllUser();		
 		List<List<String>> dateList = new ArrayList<List<String>>();
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ HHÊ±mm·ÖssÃë");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ HHæ—¶mmåˆ†ssç§’");
 		
 		for(int i = 0; i < userList.size(); i++) {
 			List<String> date = new ArrayList<String>();
@@ -77,7 +77,7 @@ public class UserController {
 			
 			dateList.add(date);
 		}
-		//±£´æ·ÖÒ³Êı¾İ
+		//ä¿å­˜åˆ†é¡µæ•°æ®
 		List<List<String>> dateList1 = new ArrayList<List<String>>();
 		List<User> userList1 = new ArrayList<User>();
 		//System.out.println(totalPage1/pageSize1);
@@ -88,7 +88,7 @@ public class UserController {
 			userList1 = userList.subList((pageIndex1-1) * pageSize1, totalPage1);
 			dateList1 = dateList.subList((pageIndex1-1) * pageSize1, totalPage1);
 		}
-		//±£´æÊı¾İ²¢·µ»Ø
+		//ä¿å­˜æ•°æ®å¹¶è¿”å›
 		List<Object> resultList = new ArrayList<Object>();
 	    resultList.add(userList1);
 	    resultList.add(dateList1);
@@ -96,7 +96,7 @@ public class UserController {
     }  
 	
 	/**
-	 * ÏÔÊ¾ÓÃ»§µÇÂ¼½çÃæ
+	 * æ˜¾ç¤ºç”¨æˆ·ç™»å½•ç•Œé¢
 	 * @param model
 	 * @return
 	 */
@@ -107,7 +107,7 @@ public class UserController {
 	}
 	
 	/**
-	 * µÇÂ¼¹¦ÄÜ
+	 * ç™»å½•åŠŸèƒ½
 	 * @param user
 	 * @param model
 	 * @param request
@@ -129,10 +129,10 @@ public class UserController {
 		}
 		
 		if(!flag){
-			model.addAttribute("message", "ÓÃ»§Ãû»òÃÜÂë´íÎó");
+			model.addAttribute("message", "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯");
 			return "showLogin";
 		}else if(!user1.getPassword().equals(password)){
-			model.addAttribute("message", "ÓÃ»§Ãû»òÃÜÂë´íÎó");
+			model.addAttribute("message", "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯");
 			return "showLogin";
 		}else {
 			Date time= new java.sql.Date(new java.util.Date().getTime());
@@ -143,13 +143,13 @@ public class UserController {
 			model.addAttribute("which", 1);
 			List<Room> roomList = roomService.getAllRoom();
 			model.addAttribute("roomList", roomList);
-			model.addAttribute("title", "Ê×Ò³");
+			model.addAttribute("title", "é¦–é¡µ");
 			return "showHome"; 
 		}
 	}
 	
 	/**
-	 * ÓÃ»§µÇ³ö
+	 * ç”¨æˆ·ç™»å‡º
 	 * @param model
 	 * @param request
 	 * @return
@@ -159,45 +159,45 @@ public class UserController {
 		List<Room> roomList = roomService.getAllRoom();
 		model.addAttribute("roomList", roomList);
 		request.getSession().setAttribute("user", null);
-		model.addAttribute("title", "Ê×Ò³");
+		model.addAttribute("title", "é¦–é¡µ");
 		return "showHome";
 	}
 	
 	
 	/**
-	 * ÏÔÊ¾ÓÃ»§×¢²á½çÃæ
+	 * æ˜¾ç¤ºç”¨æˆ·æ³¨å†Œç•Œé¢
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping("/showRegister")
 	public String showRegister(Model model,HttpServletRequest request) {
 		model.addAttribute(new User());
-		//´´½¨ÁîÅÆ,·ÀÖ¹ÖØ¸´Ìá½»
+		//åˆ›å»ºä»¤ç‰Œ,é˜²æ­¢é‡å¤æäº¤
 		String token = TokenProccessor.getInstance().makeToken();
-		request.getSession().setAttribute("token", token);//ÔÚ·şÎñÆ÷Ê¹ÓÃsession±£´æÁîÅÆ
+		request.getSession().setAttribute("token", token);//åœ¨æœåŠ¡å™¨ä½¿ç”¨sessionä¿å­˜ä»¤ç‰Œ
 		
 		return "showRegister";
 	}
 	
 	/**
-	 * ÓÃ»§×¢²á
+	 * ç”¨æˆ·æ³¨å†Œ
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public String register(@ModelAttribute("user") User user, Model model, HttpServletRequest request) {
 		
-		boolean b = isRepeatSubmit(request);//ÅĞ¶ÏÓÃ»§ÊÇ·ñÖØ¸´Ìá½»
+		boolean b = isRepeatSubmit(request);//åˆ¤æ–­ç”¨æˆ·æ˜¯å¦é‡å¤æäº¤
 		if(b == true) {
-			model.addAttribute("message", "×¢²á³É¹¦");
+			model.addAttribute("message", "æ³¨å†ŒæˆåŠŸ");
 			return "showRegisterSuccess";
 		}
 		
-		request.getSession().removeAttribute("token");//ÒÆ³ısessionÖĞµÄtoken
+		request.getSession().removeAttribute("token");//ç§»é™¤sessionä¸­çš„token
 		
 		String username = user.getUsername();
 		List<User> userList = userservice.getAllUser();
-		//ÅĞ¶ÏÊı¾İ¿âÖĞÊÇ·ñ´æÔÚµ±Ç°ÓÃ»§Ãû
+		//åˆ¤æ–­æ•°æ®åº“ä¸­æ˜¯å¦å­˜åœ¨å½“å‰ç”¨æˆ·å
 		boolean flag = true;
 		for(User u : userList){
 			if(u.getUsername().equals(username)){
@@ -213,19 +213,19 @@ public class UserController {
 			user.setLastlogintime(time);
 			user.setPassword(MD5Util.getMD5Code(user.getPassword()));
 			
-			//±£´æµ½Êı¾İ¿â
+			//ä¿å­˜åˆ°æ•°æ®åº“
 			userservice.addUser(user);
-			model.addAttribute("message", "×¢²á³É¹¦");
+			model.addAttribute("message", "æ³¨å†ŒæˆåŠŸ");
 			return "showRegisterSuccess";
 		}else {
-			model.addAttribute("message", "ÕËºÅÒÑ´æÔÚ!");
+			model.addAttribute("message", "è´¦å·å·²å­˜åœ¨!");
 			return "showRegister";
 		}
 	}
 	
 	
 	/**
-	 * ÏÔÊ¾ÕÒ»ØÃÜÂë½çÃæ
+	 * æ˜¾ç¤ºæ‰¾å›å¯†ç ç•Œé¢
 	 * @param request
 	 * @return
 	 */
@@ -236,7 +236,7 @@ public class UserController {
 	}
 	
 	/**
-	 * ÏÔÊ¾ÑéÖ¤ÓÃ»§Ãû
+	 * æ˜¾ç¤ºéªŒè¯ç”¨æˆ·å
 	 * @param request
 	 * @return
 	 */
@@ -256,14 +256,14 @@ public class UserController {
 			model.addAttribute("pageInfo", 2);
 			return "showFindPassword2";
 		}else {
-			model.addAttribute("message", "¸ÃÕËºÅ²»´æÔÚ");
+			model.addAttribute("message", "è¯¥è´¦å·ä¸å­˜åœ¨");
 			model.addAttribute("pageInfo", 1);
 			return "showFindPassword1";
 		}
 	}
 	
 	/**
-	 * ÏÔÊ¾ÑéÖ¤µç»°ºÅÂëÒ³Ãæ
+	 * æ˜¾ç¤ºéªŒè¯ç”µè¯å·ç é¡µé¢
 	 * @param request
 	 * @return
 	 */
@@ -283,33 +283,33 @@ public class UserController {
 		
 		if(flag) {	
 			model.addAttribute("pageInfo", 3);
-			//´´½¨ÁîÅÆ,·ÀÖ¹ÖØ¸´Ìá½»
+			//åˆ›å»ºä»¤ç‰Œ,é˜²æ­¢é‡å¤æäº¤
 			String token = TokenProccessor.getInstance().makeToken();
-			request.getSession().setAttribute("token", token);//ÔÚ·şÎñÆ÷Ê¹ÓÃsession±£´æÁîÅÆ
+			request.getSession().setAttribute("token", token);//åœ¨æœåŠ¡å™¨ä½¿ç”¨sessionä¿å­˜ä»¤ç‰Œ
 			return "showFindPassword3";
 		}else {
-			model.addAttribute("message", "µç»°ºÅÂë²»ÕıÈ·");
+			model.addAttribute("message", "ç”µè¯å·ç ä¸æ­£ç¡®");
 			model.addAttribute("pageInfo", 2);
 			return "showFindPassword2";
 		}
 	}
 	
 	/**
-	 * ¸ÄÃÜÂë
+	 * æ”¹å¯†ç 
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping("/updatePassword")
 	public String showFindPassword3(Model model, HttpServletRequest request) {
 		
-		boolean b = isRepeatSubmit(request);//ÅĞ¶ÏÓÃ»§ÊÇ·ñÖØ¸´Ìá½»
+		boolean b = isRepeatSubmit(request);//åˆ¤æ–­ç”¨æˆ·æ˜¯å¦é‡å¤æäº¤
 		if(b == true) {
-			model.addAttribute("message", "ÖØÖÃÃÜÂë³É¹¦");
+			model.addAttribute("message", "é‡ç½®å¯†ç æˆåŠŸ");
 			model.addAttribute("pageInfo", 4);
 			return "showUpdateSuccess";
 		}
 		
-		request.getSession().removeAttribute("token");//ÒÆ³ısessionÖĞµÄtoken
+		request.getSession().removeAttribute("token");//ç§»é™¤sessionä¸­çš„token
 		
 		String userid = request.getParameter("userid");
 		//System.out.println(userid);
@@ -319,112 +319,112 @@ public class UserController {
 		user.setPassword(MD5Util.getMD5Code(password));
 		userservice.updateUser(user);
 		//System.out.println("hah ");
-		model.addAttribute("message", "ÖØÖÃÃÜÂë³É¹¦");
+		model.addAttribute("message", "é‡ç½®å¯†ç æˆåŠŸ");
 		model.addAttribute("pageInfo", 4);
 		return "showFindPassword4";	
 	}
 	
 	/**
-	 * ÏÔÊ¾ĞŞ¸ÄÓÃ»§ĞÅÏ¢
+	 * æ˜¾ç¤ºä¿®æ”¹ç”¨æˆ·ä¿¡æ¯
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping("/showUpdateInfo")
 	public String showUpdateInfo(HttpServletRequest request) {
-		//´´½¨ÁîÅÆ,·ÀÖ¹ÖØ¸´Ìá½»
+		//åˆ›å»ºä»¤ç‰Œ,é˜²æ­¢é‡å¤æäº¤
 		String token = TokenProccessor.getInstance().makeToken();
-		request.getSession().setAttribute("token", token);//ÔÚ·şÎñÆ÷Ê¹ÓÃsession±£´æÁîÅÆ
-		request.setAttribute("title", "ĞŞ¸ÄÓÃ»§ĞÅÏ¢");
+		request.getSession().setAttribute("token", token);//åœ¨æœåŠ¡å™¨ä½¿ç”¨sessionä¿å­˜ä»¤ç‰Œ
+		request.setAttribute("title", "ä¿®æ”¹ç”¨æˆ·ä¿¡æ¯");
 		
 		return "showUpdateInfo";
 	}
 	
 	/**
-	 * ĞŞ¸ÄÓÃ»§ĞÅÏ¢
+	 * ä¿®æ”¹ç”¨æˆ·ä¿¡æ¯
 	 * @param request
 	 * @return
 	 */
 	@RequestMapping("/updateInfo")
 	public String updateInfo(HttpServletRequest request) {
 		
-		boolean b = isRepeatSubmit(request);//ÅĞ¶ÏÓÃ»§ÊÇ·ñÖØ¸´Ìá½»
+		boolean b = isRepeatSubmit(request);//åˆ¤æ–­ç”¨æˆ·æ˜¯å¦é‡å¤æäº¤
 		if(b == true) {
-			request.setAttribute("message", "ĞŞ¸ÄÓÃ»§ĞÅÏ¢³É¹¦");
-			request.setAttribute("title", "ĞŞ¸ÄÓÃ»§ĞÅÏ¢");
+			request.setAttribute("message", "ä¿®æ”¹ç”¨æˆ·ä¿¡æ¯æˆåŠŸ");
+			request.setAttribute("title", "ä¿®æ”¹ç”¨æˆ·ä¿¡æ¯");
 			return "showUpdateSuccess";
 		}
 		
-		request.getSession().removeAttribute("token");//ÒÆ³ısessionÖĞµÄtoken
+		request.getSession().removeAttribute("token");//ç§»é™¤sessionä¸­çš„token
 		
-		//»ñÈ¡ĞŞ¸ÄĞÅÏ¢
+		//è·å–ä¿®æ”¹ä¿¡æ¯
 		boolean sex = Boolean.parseBoolean(request.getParameter("sex"));
 		String phone = request.getParameter("phone");
-		//»ñÈ¡ÓÃ»§ĞÅÏ¢
+		//è·å–ç”¨æˆ·ä¿¡æ¯
 		User user = (User)request.getSession().getAttribute("user");
-		//ĞŞ¸ÄÓÃ»§ĞÅÏ¢
+		//ä¿®æ”¹ç”¨æˆ·ä¿¡æ¯
 		user.setSex(sex);
 		user.setPhone(phone);
 		userservice.updateUser(user);
 		//System.out.println(sex+phone);
-		request.setAttribute("message", "ĞŞ¸ÄÓÃ»§ĞÅÏ¢³É¹¦");
-		request.setAttribute("title", "ĞŞ¸ÄÓÃ»§ĞÅÏ¢");
+		request.setAttribute("message", "ä¿®æ”¹ç”¨æˆ·ä¿¡æ¯æˆåŠŸ");
+		request.setAttribute("title", "ä¿®æ”¹ç”¨æˆ·ä¿¡æ¯");
 		
 		return "showUpdateSuccess";
 	}
 	
 	/**
-	 * ÏÔÊ¾ÓÃ»§ĞÅÏ¢
+	 * æ˜¾ç¤ºç”¨æˆ·ä¿¡æ¯
 	 * @param request
 	 * @return
 	 */
 	@SuppressWarnings("deprecation")
 	@RequestMapping("/showUserInfo")
 	public String showUserInfo(HttpServletRequest request) {
-		//´ÓsessionÖĞ»ñÈ¡ÓÃ»§ĞÅÏ¢
+		//ä»sessionä¸­è·å–ç”¨æˆ·ä¿¡æ¯
 		User user = (User)request.getSession().getAttribute("user");
-		//¼ÆËãÕË»§ÄêÁä
+		//è®¡ç®—è´¦æˆ·å¹´é¾„
 		String old = "";
 		Date time= new java.sql.Date(new java.util.Date().getTime());
 		int oldYear = time.getYear() - user.getRegtime().getYear();
 		if(oldYear == 0) {
-			old = "Ğ¡ÓÚ1Äê";
+			old = "å°äº1å¹´";
 		}else {
-			old = oldYear + "Äê";
+			old = oldYear + "å¹´";
 		}
-		//·µ»ØÓÃ»§ĞÅÏ¢
+		//è¿”å›ç”¨æˆ·ä¿¡æ¯
 		request.setAttribute("user", user);
 		request.setAttribute("old", old);
 		
-		//×ª»»×î½üÒ»´ÎµÇÂ¼Ê±¼ä
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyÄêMMÔÂddÈÕ HHÊ±mm·ÖssÃë");
+		//è½¬æ¢æœ€è¿‘ä¸€æ¬¡ç™»å½•æ—¶é—´
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyyå¹´MMæœˆddæ—¥ HHæ—¶mmåˆ†ssç§’");
 		request.setAttribute("lastlogintime", sdf.format(user.getLastlogintime()));
-		//×î½üÒ»´ÎµÇÂ¼ip
+		//æœ€è¿‘ä¸€æ¬¡ç™»å½•ip
 		String ip[] = user.getLastloginip().split("\\.");
 		request.setAttribute("lastloginip", ip[0] + "." + ip[1] + ".*.*");
-		request.setAttribute("title", "ÓÃ»§ĞÅÏ¢");
+		request.setAttribute("title", "ç”¨æˆ·ä¿¡æ¯");
 		return "showUserInfo";
 	}
 	
 	/**
-     * ÅĞ¶Ï¿Í»§¶ËÌá½»ÉÏÀ´µÄÁîÅÆºÍ·şÎñÆ÷¶ËÉú³ÉµÄÁîÅÆÊÇ·ñÒ»ÖÂ
+     * åˆ¤æ–­å®¢æˆ·ç«¯æäº¤ä¸Šæ¥çš„ä»¤ç‰Œå’ŒæœåŠ¡å™¨ç«¯ç”Ÿæˆçš„ä»¤ç‰Œæ˜¯å¦ä¸€è‡´
      * @param request
      * @return 
-     *         true ÓÃ»§ÖØ¸´Ìá½»ÁË±íµ¥ 
-     *         false ÓÃ»§Ã»ÓĞÖØ¸´Ìá½»±íµ¥
+     *         true ç”¨æˆ·é‡å¤æäº¤äº†è¡¨å• 
+     *         false ç”¨æˆ·æ²¡æœ‰é‡å¤æäº¤è¡¨å•
      */
     private boolean isRepeatSubmit(HttpServletRequest request) {
         String client_token = request.getParameter("token");
-        //1¡¢Èç¹ûÓÃ»§Ìá½»µÄ±íµ¥Êı¾İÖĞÃ»ÓĞtoken£¬ÔòÓÃ»§ÊÇÖØ¸´Ìá½»ÁË±íµ¥
+        //1ã€å¦‚æœç”¨æˆ·æäº¤çš„è¡¨å•æ•°æ®ä¸­æ²¡æœ‰tokenï¼Œåˆ™ç”¨æˆ·æ˜¯é‡å¤æäº¤äº†è¡¨å•
         if(client_token==null){
             return true;
         }
-        //È¡³ö´æ´¢ÔÚSessionÖĞµÄtoken
+        //å–å‡ºå­˜å‚¨åœ¨Sessionä¸­çš„token
         String server_token = (String) request.getSession().getAttribute("token");
-        //2¡¢Èç¹ûµ±Ç°ÓÃ»§µÄSessionÖĞ²»´æÔÚToken(ÁîÅÆ)£¬ÔòÓÃ»§ÊÇÖØ¸´Ìá½»ÁË±íµ¥
+        //2ã€å¦‚æœå½“å‰ç”¨æˆ·çš„Sessionä¸­ä¸å­˜åœ¨Token(ä»¤ç‰Œ)ï¼Œåˆ™ç”¨æˆ·æ˜¯é‡å¤æäº¤äº†è¡¨å•
         if(server_token==null){
             return true;
         }
-        //3¡¢´æ´¢ÔÚSessionÖĞµÄToken(ÁîÅÆ)Óë±íµ¥Ìá½»µÄToken(ÁîÅÆ)²»Í¬£¬ÔòÓÃ»§ÊÇÖØ¸´Ìá½»ÁË±íµ¥
+        //3ã€å­˜å‚¨åœ¨Sessionä¸­çš„Token(ä»¤ç‰Œ)ä¸è¡¨å•æäº¤çš„Token(ä»¤ç‰Œ)ä¸åŒï¼Œåˆ™ç”¨æˆ·æ˜¯é‡å¤æäº¤äº†è¡¨å•
         if(!client_token.equals(server_token)){
             return true;
         }
@@ -434,7 +434,7 @@ public class UserController {
 	
 	
 	/**
-	 * »ñÈ¡ÕæÊµµÄipµØÖ·
+	 * è·å–çœŸå®çš„ipåœ°å€
 	 * @param request
 	 * @return
 	 */

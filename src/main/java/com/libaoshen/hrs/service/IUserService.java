@@ -5,19 +5,19 @@ import java.util.List;
 import com.libaoshen.hrs.bean.User;
 
 /**
- * ÓÃ»§·şÎñÀà
+ * ç”¨æˆ·æœåŠ¡ç±»
  * @author 404
  *
  */
 public interface IUserService {
-	//¸ù¾İÖ÷¼üid²éÕÒÓÃ»§ĞÅÏ¢
+	//æ ¹æ®ä¸»é”®idæŸ¥æ‰¾ç”¨æˆ·ä¿¡æ¯
 	public User getUserById(Integer userId);
-	//¸ù¾İÓÃ»§Ãû²éÕÒÓÃ»§ĞÅÏ¢
+	//æ ¹æ®ç”¨æˆ·åæŸ¥æ‰¾ç”¨æˆ·ä¿¡æ¯
 	public User getUserByUserName(String userName);
-	//ĞŞ¸ÄÓÃ»§ĞÅÏ¢
+	//ä¿®æ”¹ç”¨æˆ·ä¿¡æ¯
 	public void updateUser(User user);
-	//Ôö¼ÓÓÃ»§ĞÅÏ¢
+	//å¢åŠ ç”¨æˆ·ä¿¡æ¯
 	public void addUser(User user);
-	//²éÕÒËùÓĞµÄÓÃ»§ĞÅÏ¢
+	//æŸ¥æ‰¾æ‰€æœ‰çš„ç”¨æˆ·ä¿¡æ¯
 	public List<User> getAllUser();
 }

@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.libaoshen.hrs.dao.UserMapper">
+  <resultMap id="BaseResultMap" type="com.libaoshen.hrs.bean.User">
+    <id column="userID" jdbcType="INTEGER" property="userid" />
+    <result column="userName" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="sex" jdbcType="BIT" property="sex" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="regTime" jdbcType="TIMESTAMP" property="regtime" />
+    <result column="regIP" jdbcType="VARCHAR" property="regip" />
+    <result column="lastLoginTime" jdbcType="TIMESTAMP" property="lastlogintime" />
+    <result column="lastLoginIP" jdbcType="VARCHAR" property="lastloginip" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    userID, userName, password, sex, phone, regTime, regIP, lastLoginTime, lastLoginIP
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user
+    where userID = #{userid,jdbcType=INTEGER}
+  </select>
+  <select id="selectByUserName" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user
+    where userName = #{username,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from tb_user
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_user
+    where userID = #{userid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.libaoshen.hrs.bean.User">
+    insert into tb_user (userID, userName, password, 
+      sex, phone, regTime, 
+      regIP, lastLoginTime, lastLoginIP
+      )
+    values (#{userid,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=BIT}, #{phone,jdbcType=VARCHAR}, #{regtime,jdbcType=TIMESTAMP}, 
+      #{regip,jdbcType=VARCHAR}, #{lastlogintime,jdbcType=TIMESTAMP}, #{lastloginip,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.libaoshen.hrs.bean.User">
+    insert into tb_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        userID,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="regtime != null">
+        regTime,
+      </if>
+      <if test="regip != null">
+        regIP,
+      </if>
+      <if test="lastlogintime != null">
+        lastLoginTime,
+      </if>
+      <if test="lastloginip != null">
+        lastLoginIP,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userid != null">
+        #{userid,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=BIT},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="regtime != null">
+        #{regtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regip != null">
+        #{regip,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogintime != null">
+        #{lastlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastloginip != null">
+        #{lastloginip,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.libaoshen.hrs.bean.User">
+    update tb_user
+    <set>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=BIT},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="regtime != null">
+        regTime = #{regtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="regip != null">
+        regIP = #{regip,jdbcType=VARCHAR},
+      </if>
+      <if test="lastlogintime != null">
+        lastLoginTime = #{lastlogintime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastloginip != null">
+        lastLoginIP = #{lastloginip,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where userID = #{userid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.libaoshen.hrs.bean.User">
+    update tb_user
+    set userName = #{username,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=BIT},
+      phone = #{phone,jdbcType=VARCHAR},
+      regTime = #{regtime,jdbcType=TIMESTAMP},
+      regIP = #{regip,jdbcType=VARCHAR},
+      lastLoginTime = #{lastlogintime,jdbcType=TIMESTAMP},
+      lastLoginIP = #{lastloginip,jdbcType=VARCHAR}
+    where userID = #{userid,jdbcType=INTEGER}
+  </update>
+</mapper>

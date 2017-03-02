@@ -17,7 +17,7 @@ import com.libaoshen.hrs.service.IRoomService;
 import com.libaoshen.hrs.util.MD5Util;
 
 /**
- * ¹ÜÀíÔ±µÇÂ¼¿ØÖÆÆ÷
+ * ç®¡ç†å‘˜ç™»å½•æ§åˆ¶å™¨
  * @author 404
  *
  */
@@ -31,7 +31,7 @@ public class AdminController {
 	private IRoomService roomService;
 	
 	/**
-	 * ÏÔÊ¾µÇÂ¼Ò³Ãæ
+	 * æ˜¾ç¤ºç™»å½•é¡µé¢
 	 * @param model
 	 * @return
 	 */
@@ -42,21 +42,21 @@ public class AdminController {
 	}
 	
 	/**
-	 * ÏÔÊ¾Ê×Ò³½çÃæ
+	 * æ˜¾ç¤ºé¦–é¡µç•Œé¢
 	 * @param model
 	 * @return
 	 */
 	@RequestMapping("/home")
 	public String toHome(Model model, HttpSession session) {
 		model.addAttribute(new Room());
-		model.addAttribute("title", "Ê×Ò³");
+		model.addAttribute("title", "é¦–é¡µ");
 		return "showAdminHome";
 	}
 	
 	/**
-	 * µÇÂ¼Âß¼­,·µ»ØÊÓÍ¼ĞÅÏ¢ºÍÏà¹ØÌáÊ¾ĞÅÏ¢
-	 * @param admin Ç°Ì¨´«»ØµÄµÇÂ¼ĞÅÏ¢
-	 * @param session µÇÂ¼ĞÅÏ¢±£´æÔÚsessionÖĞ
+	 * ç™»å½•é€»è¾‘,è¿”å›è§†å›¾ä¿¡æ¯å’Œç›¸å…³æç¤ºä¿¡æ¯
+	 * @param admin å‰å°ä¼ å›çš„ç™»å½•ä¿¡æ¯
+	 * @param session ç™»å½•ä¿¡æ¯ä¿å­˜åœ¨sessionä¸­
 	 * @return
 	 */
 	@RequestMapping(value="/login",method=RequestMethod.POST)
@@ -64,17 +64,17 @@ public class AdminController {
 		ModelAndView mav = new ModelAndView();	
 		try {	
 			String adminname = admin.getAdminname();
-			//Ê¹ÓÃmd5¼ÓÃÜ
+			//ä½¿ç”¨md5åŠ å¯†
 			String password = MD5Util.getMD5Code(admin.getPassword());
 			
-			//ÅĞ¶ÏÓÃ»§Ãû»òÃÜÂëÊÇ·ñÕıÈ·
+			//åˆ¤æ–­ç”¨æˆ·åæˆ–å¯†ç æ˜¯å¦æ­£ç¡®
 			for(Admin a : adminService.getAllAdmin()) {
-				//ÓÃ»§ÃûÕıÈ·
+				//ç”¨æˆ·åæ­£ç¡®
 				if(a.getAdminname().equals(adminname)) {
-					//ÃÜÂëÕıÈ·
+					//å¯†ç æ­£ç¡®
 					if(password.equalsIgnoreCase(a.getPassword())){
 						session.setAttribute("admin", a);
-						mav.addObject("title", "Ê×Ò³");
+						mav.addObject("title", "é¦–é¡µ");
 						mav.addObject(new Room());
 						mav.setViewName("showAdminHome");
 						return mav;
@@ -85,8 +85,8 @@ public class AdminController {
 				}
 			}
 			
-			//ÕËºÅ»òÃÜÂë´íÎó
-			String message = "ÕËºÅ»òÃÜÂë´íÎó";
+			//è´¦å·æˆ–å¯†ç é”™è¯¯
+			String message = "è´¦å·æˆ–å¯†ç é”™è¯¯";
 			mav.addObject("message",message);
 			mav.setViewName("showAdminLogin");
 			return mav;
@@ -98,14 +98,14 @@ public class AdminController {
 	}
 	
 	/**
-	 * °²È«ÍË³ö
+	 * å®‰å…¨é€€å‡º
 	 * @param model
 	 * @param session
 	 * @return
 	 */
 	@RequestMapping("/logout")
 	public String logout(Model model, HttpSession session) {
-		//Èç¹ûÒÑ¾­µÇÂ¼,ÔòÇå¿Õsession
+		//å¦‚æœå·²ç»ç™»å½•,åˆ™æ¸…ç©ºsession
 		if(session.getAttribute("admin") != null) {
 			session.setAttribute("admin", null);
 		}

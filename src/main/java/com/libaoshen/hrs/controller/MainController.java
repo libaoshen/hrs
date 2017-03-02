@@ -22,13 +22,13 @@ public class MainController {
 		List<Room> roomList = roomService.getAllRoom();
 		model.addAttribute("roomList", roomList);
 		model.addAttribute("which", 1);
-		model.addAttribute("title", "首页");
+		model.addAttribute("title", "棣栭〉");
 		return "showHome";
 	}
 	
 	@RequestMapping("showHelp")
 	public String toHelp(Model model){
-		model.addAttribute("title", "使用指南");
+		model.addAttribute("title", "浣跨敤鎸囧崡");
 		model.addAttribute("which", 2);
 		return "showHelp";
 	}

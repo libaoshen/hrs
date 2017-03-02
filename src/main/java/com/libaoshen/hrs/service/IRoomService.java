@@ -5,21 +5,21 @@ import java.util.List;
 import com.libaoshen.hrs.bean.Room;
 
 /**
- * ·¿¼ä·şÎñÀà
+ * æˆ¿é—´æœåŠ¡ç±»
  * @author 404
  *
  */
 public interface IRoomService {
-	//¸ù¾İÖ÷¼üid²éÕÒ·¿ĞÍĞÅÏ¢
+	//æ ¹æ®ä¸»é”®idæŸ¥æ‰¾æˆ¿å‹ä¿¡æ¯
 	public Room getRoomById(Integer roomId);
-	//¸ù¾İ·¿ĞÍÃû²éÕÒ·¿ĞÍĞÅÏ¢
+	//æ ¹æ®æˆ¿å‹åæŸ¥æ‰¾æˆ¿å‹ä¿¡æ¯
 	public Room getRoomByRoomName(String roomName);
-	//¸ù¾İ·¿ĞÍidÉ¾³ı·¿ĞÍĞÅÏ¢
+	//æ ¹æ®æˆ¿å‹idåˆ é™¤æˆ¿å‹ä¿¡æ¯
 	public int deleteRoomByRoomId(Integer roomId);
-	//ĞŞ¸Ä·¿ĞÍĞÅÏ¢
+	//ä¿®æ”¹æˆ¿å‹ä¿¡æ¯
 	public void updateRoom(Room room);
-	//Ôö¼Ó·¿ĞÍĞÅÏ¢
+	//å¢åŠ æˆ¿å‹ä¿¡æ¯
 	public void addRoom(Room room);
-	//²éÕÒËùÓĞ·¿ĞÍĞÅÏ¢
+	//æŸ¥æ‰¾æ‰€æœ‰æˆ¿å‹ä¿¡æ¯
 	public List<Room> getAllRoom();
 }

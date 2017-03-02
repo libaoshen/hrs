@@ -21,11 +21,11 @@ import com.libaoshen.hrs.service.IAdminService;
 import com.libaoshen.hrs.service.IOrderService;
 
 /**
- * ¶©µ¥µ¥Ôª²âÊÔÀà
+ * è®¢å•å•å…ƒæµ‹è¯•ç±»
  * @author 404
  *
  */
-@RunWith(SpringJUnit4ClassRunner.class)		//±íÊ¾¼Ì³ĞÁËSpringJUnit4ClassRunnerÀà
+@RunWith(SpringJUnit4ClassRunner.class)		//è¡¨ç¤ºç»§æ‰¿äº†SpringJUnit4ClassRunnerç±»
 @ContextConfiguration(locations = {"classpath:spring-mybatis.xml"})
 public class OrderTest01 {
 	private static Logger logger = Logger.getLogger(AdminTest01.class);
@@ -35,7 +35,7 @@ public class OrderTest01 {
 	@Test
 	public void testOrder01(){
 		SimpleDateFormat sdf =   new SimpleDateFormat("yyyy-MM-dd");
-		//Ìí¼Ó
+		//æ·»åŠ 
 //		Order order = new Order();
 //		order.setUserid(3);
 //		order.setRoomid(3);
@@ -52,12 +52,12 @@ public class OrderTest01 {
 //		order.setOrdertime(new Date());
 //		order.setOrderip("127.0.0.1");
 //		order.setTotalprice(1200.0f);
-//		order.setOrderstate("Î´Ö§¸¶");
-//		order.setRegisterinfo("ÕÅÈı,ÀîËÄ,ÍõÎå");
-//		order.setRemarks("Ğ»Ğ»,Ï£ÍûÄÜ¾¡¿ìÈë×¡");
+//		order.setOrderstate("æœªæ”¯ä»˜");
+//		order.setRegisterinfo("å¼ ä¸‰,æå››,ç‹äº”");
+//		order.setRemarks("è°¢è°¢,å¸Œæœ›èƒ½å°½å¿«å…¥ä½");
 		
 		//orderService.addOrder(order);
-		//²éÑ¯
+		//æŸ¥è¯¢
 		//List<Order> order1 = orderService.getOrdersByUserId(3);
 		
 //		List<Order> order1 = new ArrayList<Order>();
@@ -74,7 +74,7 @@ public class OrderTest01 {
 		Order order = orderService.getOrderById(4L);
 		logger.info(JSON.toJSONString(order));
 		
-//		List<Order> orderList = orderService.getOrdersByOrderState("Î´Ö§¸¶");
+//		List<Order> orderList = orderService.getOrdersByOrderState("æœªæ”¯ä»˜");
 //		for(Order o : orderList){
 //			logger.info(JSON.toJSONString(o));
 //		}
@@ -84,7 +84,7 @@ public class OrderTest01 {
 //			logger.info(JSON.toJSONString(o));
 //		}
 		
-		order.setRemarks("Ğ»Ğ»");
+		order.setRemarks("è°¢è°¢");
 		orderService.updateOrder(order);
 		
 		orderService.deleteOrder(order);

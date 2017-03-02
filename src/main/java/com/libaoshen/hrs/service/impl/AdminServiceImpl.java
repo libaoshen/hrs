@@ -9,7 +9,7 @@ import com.libaoshen.hrs.dao.AdminMapper;
 import com.libaoshen.hrs.service.IAdminService;
 
 /**
- * 管理员服务接口实现类，同时采用注解声明为一个bean，名为adminService
+ * 绠＄悊鍛樻湇鍔℃帴鍙ｅ疄鐜扮被锛屽悓鏃堕噰鐢ㄦ敞瑙ｅ０鏄庝负涓�涓猙ean锛屽悕涓篴dminService
  * @author 404
  *
  */

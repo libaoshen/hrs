@@ -38,7 +38,7 @@ public class OrderServiceImpl implements IOrderService {
 
 	public List<Order> getOrdersByOrderTime(Date orderTime) {
 		List<Order> orderList = orderMapper.selectAllOrder();
-		//×ª»¯Îª¸ñÊ½»¯×Ö·û´®,È»ºó±È½ÏÆäÁ½¸ö×Ö·û´®ÊÇ·ñÔÚÍ¬Ò»Ìì
+		//è½¬åŒ–ä¸ºæ ¼å¼åŒ–å­—ç¬¦ä¸²,ç„¶åæ¯”è¾ƒå…¶ä¸¤ä¸ªå­—ç¬¦ä¸²æ˜¯å¦åœ¨åŒä¸€å¤©
 		SimpleDateFormat sdf =   new SimpleDateFormat("yyyy-MM-dd");
 		for(int i = 0 ; i < orderList.size(); i++){
 			if(!sdf.format(orderList.get(i).getOrdertime()).equals(sdf.format(new java.util.Date(orderTime.getTime())))) {
